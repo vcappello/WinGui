@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Workspace Name="WinGui" Database="">
+  <Project Name="Example" Path="Example/Example.project" Active="Yes"/>
+  <Project Name="WinGui" Path="WinGui/WinGui.project"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Debug" Selected="yes">
+      <Project Name="Example" ConfigName="Debug"/>
+      <Project Name="WinGui" ConfigName="Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="Example" ConfigName="Release"/>
+      <Project Name="WinGui" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>
