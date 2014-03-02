@@ -1,6 +1,7 @@
 #include "button_factory.h"
 
 #include <application.h>
+#include <message_dispatcher.h>
 
 namespace gui
 {
@@ -53,7 +54,10 @@ std::shared_ptr<gui::controller::ButtonController> ButtonFactory::create(std::sh
 		throw SystemError( SystemError::getLastErrorMessage() );
 
 	std::shared_ptr<controller::ButtonController> controller =
-	    std::make_shared<controller::ButtonController>( hWnd );
+	    std::make_shared<controller::ButtonController>( hWnd, button_id );
+
+	// Register controller on MessageDispatcher
+	MessageDispatcher::getInstance()->registerController (controller);
 
 	return controller;
 }

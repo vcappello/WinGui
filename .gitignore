@@ -1,0 +1,12 @@
+.build-debug/WinGui
+.codelite/WinGui.session
+.codelite/WinGui.tags
+.codelite/WinGui.workspace.vincenzo
+.codelite/refactoring.db
+.codelite/sftp-workspace-settings.conf
+.codelite/tweaks.conf
+*.d
+*.o
+WinGui/Debug/WinGui.dll
+Example/Debug/WinGui.dll
+Example/Debug/Example.exe

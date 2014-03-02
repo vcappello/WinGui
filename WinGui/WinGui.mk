@@ -5,8 +5,8 @@
 ## Debug
 ProjectName            :=WinGui
 ConfigurationName      :=Debug
-WorkspacePath          := "C:\Users\vincenzo\Documents\Projects\WinGui"
-ProjectPath            := "C:\Users\vincenzo\Documents\Projects\WinGui\WinGui"
+WorkspacePath          := "C:\Users\vincenzo\Documents\GitHub\WinGui"
+ProjectPath            := "C:\Users\vincenzo\Documents\GitHub\WinGui\WinGui"
 IntermediateDirectory  :=./Debug
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
@@ -81,8 +81,8 @@ $(OutputFile): $(IntermediateDirectory)/.d $(Objects)
 	@echo "" > $(IntermediateDirectory)/.d
 	@echo $(Objects0)  > $(ObjectsFileList)
 	$(SharedObjectLinkerName) $(OutputSwitch)$(OutputFile) @$(ObjectsFileList) $(LibPath) $(Libs) $(LinkOptions)
-	@$(MakeDirCommand) "C:\Users\vincenzo\Documents\Projects\WinGui/.build-debug"
-	@echo rebuilt > "C:\Users\vincenzo\Documents\Projects\WinGui/.build-debug/WinGui"
+	@$(MakeDirCommand) "C:\Users\vincenzo\Documents\GitHub\WinGui/.build-debug"
+	@echo rebuilt > "C:\Users\vincenzo\Documents\GitHub\WinGui/.build-debug/WinGui"
 
 PostBuild:
 	@echo Executing Post Build commands ...
@@ -99,7 +99,7 @@ PreBuild:
 ## Objects
 ##
 $(IntermediateDirectory)/application$(ObjectSuffix): application.cpp $(IntermediateDirectory)/application$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/Projects/WinGui/WinGui/application.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/application$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/GitHub/WinGui/WinGui/application.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/application$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/application$(DependSuffix): application.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/application$(ObjectSuffix) -MF$(IntermediateDirectory)/application$(DependSuffix) -MM "application.cpp"
 
@@ -107,7 +107,7 @@ $(IntermediateDirectory)/application$(PreprocessSuffix): application.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/application$(PreprocessSuffix) "application.cpp"
 
 $(IntermediateDirectory)/message_dispatcher$(ObjectSuffix): message_dispatcher.cpp $(IntermediateDirectory)/message_dispatcher$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/Projects/WinGui/WinGui/message_dispatcher.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/message_dispatcher$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/GitHub/WinGui/WinGui/message_dispatcher.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/message_dispatcher$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/message_dispatcher$(DependSuffix): message_dispatcher.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/message_dispatcher$(ObjectSuffix) -MF$(IntermediateDirectory)/message_dispatcher$(DependSuffix) -MM "message_dispatcher.cpp"
 
@@ -115,7 +115,7 @@ $(IntermediateDirectory)/message_dispatcher$(PreprocessSuffix): message_dispatch
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/message_dispatcher$(PreprocessSuffix) "message_dispatcher.cpp"
 
 $(IntermediateDirectory)/graphics$(ObjectSuffix): graphics.cpp $(IntermediateDirectory)/graphics$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/Projects/WinGui/WinGui/graphics.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/graphics$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/GitHub/WinGui/WinGui/graphics.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/graphics$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/graphics$(DependSuffix): graphics.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/graphics$(ObjectSuffix) -MF$(IntermediateDirectory)/graphics$(DependSuffix) -MM "graphics.cpp"
 
@@ -123,7 +123,7 @@ $(IntermediateDirectory)/graphics$(PreprocessSuffix): graphics.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/graphics$(PreprocessSuffix) "graphics.cpp"
 
 $(IntermediateDirectory)/error$(ObjectSuffix): error.cpp $(IntermediateDirectory)/error$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/Projects/WinGui/WinGui/error.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/error$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/GitHub/WinGui/WinGui/error.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/error$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/error$(DependSuffix): error.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/error$(ObjectSuffix) -MF$(IntermediateDirectory)/error$(DependSuffix) -MM "error.cpp"
 
@@ -131,7 +131,7 @@ $(IntermediateDirectory)/error$(PreprocessSuffix): error.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/error$(PreprocessSuffix) "error.cpp"
 
 $(IntermediateDirectory)/id_provider$(ObjectSuffix): id_provider.cpp $(IntermediateDirectory)/id_provider$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/Projects/WinGui/WinGui/id_provider.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/id_provider$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/GitHub/WinGui/WinGui/id_provider.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/id_provider$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/id_provider$(DependSuffix): id_provider.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/id_provider$(ObjectSuffix) -MF$(IntermediateDirectory)/id_provider$(DependSuffix) -MM "id_provider.cpp"
 
@@ -139,7 +139,7 @@ $(IntermediateDirectory)/id_provider$(PreprocessSuffix): id_provider.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/id_provider$(PreprocessSuffix) "id_provider.cpp"
 
 $(IntermediateDirectory)/system_error$(ObjectSuffix): system_error.cpp $(IntermediateDirectory)/system_error$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/Projects/WinGui/WinGui/system_error.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/system_error$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/GitHub/WinGui/WinGui/system_error.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/system_error$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/system_error$(DependSuffix): system_error.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/system_error$(ObjectSuffix) -MF$(IntermediateDirectory)/system_error$(DependSuffix) -MM "system_error.cpp"
 
@@ -147,7 +147,7 @@ $(IntermediateDirectory)/system_error$(PreprocessSuffix): system_error.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/system_error$(PreprocessSuffix) "system_error.cpp"
 
 $(IntermediateDirectory)/window_builder$(ObjectSuffix): window_builder.cpp $(IntermediateDirectory)/window_builder$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/Projects/WinGui/WinGui/window_builder.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/window_builder$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/GitHub/WinGui/WinGui/window_builder.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/window_builder$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/window_builder$(DependSuffix): window_builder.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/window_builder$(ObjectSuffix) -MF$(IntermediateDirectory)/window_builder$(DependSuffix) -MM "window_builder.cpp"
 
@@ -155,7 +155,7 @@ $(IntermediateDirectory)/window_builder$(PreprocessSuffix): window_builder.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/window_builder$(PreprocessSuffix) "window_builder.cpp"
 
 $(IntermediateDirectory)/model_window_model$(ObjectSuffix): model/window_model.cpp $(IntermediateDirectory)/model_window_model$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/Projects/WinGui/WinGui/model/window_model.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/model_window_model$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/GitHub/WinGui/WinGui/model/window_model.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/model_window_model$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/model_window_model$(DependSuffix): model/window_model.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/model_window_model$(ObjectSuffix) -MF$(IntermediateDirectory)/model_window_model$(DependSuffix) -MM "model/window_model.cpp"
 
@@ -163,7 +163,7 @@ $(IntermediateDirectory)/model_window_model$(PreprocessSuffix): model/window_mod
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/model_window_model$(PreprocessSuffix) "model/window_model.cpp"
 
 $(IntermediateDirectory)/model_button_model$(ObjectSuffix): model/button_model.cpp $(IntermediateDirectory)/model_button_model$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/Projects/WinGui/WinGui/model/button_model.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/model_button_model$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/GitHub/WinGui/WinGui/model/button_model.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/model_button_model$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/model_button_model$(DependSuffix): model/button_model.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/model_button_model$(ObjectSuffix) -MF$(IntermediateDirectory)/model_button_model$(DependSuffix) -MM "model/button_model.cpp"
 
@@ -171,7 +171,7 @@ $(IntermediateDirectory)/model_button_model$(PreprocessSuffix): model/button_mod
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/model_button_model$(PreprocessSuffix) "model/button_model.cpp"
 
 $(IntermediateDirectory)/controller_window_controller$(ObjectSuffix): controller/window_controller.cpp $(IntermediateDirectory)/controller_window_controller$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/Projects/WinGui/WinGui/controller/window_controller.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/controller_window_controller$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/GitHub/WinGui/WinGui/controller/window_controller.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/controller_window_controller$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/controller_window_controller$(DependSuffix): controller/window_controller.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/controller_window_controller$(ObjectSuffix) -MF$(IntermediateDirectory)/controller_window_controller$(DependSuffix) -MM "controller/window_controller.cpp"
 
@@ -179,7 +179,7 @@ $(IntermediateDirectory)/controller_window_controller$(PreprocessSuffix): contro
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/controller_window_controller$(PreprocessSuffix) "controller/window_controller.cpp"
 
 $(IntermediateDirectory)/controller_button_controller$(ObjectSuffix): controller/button_controller.cpp $(IntermediateDirectory)/controller_button_controller$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/Projects/WinGui/WinGui/controller/button_controller.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/controller_button_controller$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/GitHub/WinGui/WinGui/controller/button_controller.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/controller_button_controller$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/controller_button_controller$(DependSuffix): controller/button_controller.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/controller_button_controller$(ObjectSuffix) -MF$(IntermediateDirectory)/controller_button_controller$(DependSuffix) -MM "controller/button_controller.cpp"
 
@@ -187,7 +187,7 @@ $(IntermediateDirectory)/controller_button_controller$(PreprocessSuffix): contro
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/controller_button_controller$(PreprocessSuffix) "controller/button_controller.cpp"
 
 $(IntermediateDirectory)/controller_controller_base$(ObjectSuffix): controller/controller_base.cpp $(IntermediateDirectory)/controller_controller_base$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/Projects/WinGui/WinGui/controller/controller_base.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/controller_controller_base$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/GitHub/WinGui/WinGui/controller/controller_base.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/controller_controller_base$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/controller_controller_base$(DependSuffix): controller/controller_base.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/controller_controller_base$(ObjectSuffix) -MF$(IntermediateDirectory)/controller_controller_base$(DependSuffix) -MM "controller/controller_base.cpp"
 
@@ -195,7 +195,7 @@ $(IntermediateDirectory)/controller_controller_base$(PreprocessSuffix): controll
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/controller_controller_base$(PreprocessSuffix) "controller/controller_base.cpp"
 
 $(IntermediateDirectory)/factory_button_factory$(ObjectSuffix): factory/button_factory.cpp $(IntermediateDirectory)/factory_button_factory$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/Projects/WinGui/WinGui/factory/button_factory.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/factory_button_factory$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/GitHub/WinGui/WinGui/factory/button_factory.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/factory_button_factory$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/factory_button_factory$(DependSuffix): factory/button_factory.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/factory_button_factory$(ObjectSuffix) -MF$(IntermediateDirectory)/factory_button_factory$(DependSuffix) -MM "factory/button_factory.cpp"
 
@@ -203,7 +203,7 @@ $(IntermediateDirectory)/factory_button_factory$(PreprocessSuffix): factory/butt
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/factory_button_factory$(PreprocessSuffix) "factory/button_factory.cpp"
 
 $(IntermediateDirectory)/factory_window_factory$(ObjectSuffix): factory/window_factory.cpp $(IntermediateDirectory)/factory_window_factory$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/Projects/WinGui/WinGui/factory/window_factory.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/factory_window_factory$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/GitHub/WinGui/WinGui/factory/window_factory.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/factory_window_factory$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/factory_window_factory$(DependSuffix): factory/window_factory.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/factory_window_factory$(ObjectSuffix) -MF$(IntermediateDirectory)/factory_window_factory$(DependSuffix) -MM "factory/window_factory.cpp"
 

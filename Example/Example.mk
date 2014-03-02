@@ -5,8 +5,8 @@
 ## Debug
 ProjectName            :=Example
 ConfigurationName      :=Debug
-WorkspacePath          := "C:\Users\vincenzo\Documents\Projects\WinGui"
-ProjectPath            := "C:\Users\vincenzo\Documents\Projects\WinGui\Example"
+WorkspacePath          := "C:\Users\vincenzo\Documents\GitHub\WinGui"
+ProjectPath            := "C:\Users\vincenzo\Documents\GitHub\WinGui\Example"
 IntermediateDirectory  :=./Debug
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
@@ -98,7 +98,7 @@ PreBuild:
 ## Objects
 ##
 $(IntermediateDirectory)/main$(ObjectSuffix): main.cpp $(IntermediateDirectory)/main$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/Projects/WinGui/Example/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/vincenzo/Documents/GitHub/WinGui/Example/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/main$(DependSuffix): main.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/main$(ObjectSuffix) -MF$(IntermediateDirectory)/main$(DependSuffix) -MM "main.cpp"
 

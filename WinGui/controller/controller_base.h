@@ -22,15 +22,18 @@ public:
 	virtual ~ControllerBase();
 
 public:
+	// Properties
 	HWND getHWnd() const;
 	
 	virtual std::shared_ptr<model::IModelElement> getModelElement() const = 0;
 
 public:
+	// Methods
 	virtual void show();
 	virtual void update();
 	
 public:
+	// Events
 	virtual bool fireSystemEvent(UINT message, WPARAM wParam, LPARAM lParam, LRESULT& lResult);
 
 	typedef typename std::shared_ptr<Event<std::shared_ptr<Graphics>>> paint_event_t;

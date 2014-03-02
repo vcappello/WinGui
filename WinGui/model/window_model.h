@@ -19,10 +19,12 @@ namespace model
 class WindowModel : public IModelElement
 {
 public:
+	// Instance
 	WindowModel();
 	virtual ~WindowModel();
 
 public:
+	// Attributes
 	void setName(const std::string& name);
 	std::string getName() const;
 	
@@ -45,6 +47,7 @@ public:
 	std::string getCaption() const;
 	
 public:
+	// Container
 	void add(std::shared_ptr<IModelElement> child);
 	void erase(const std::string& name);
 	std::shared_ptr<IModelElement> get(const std::string& name);

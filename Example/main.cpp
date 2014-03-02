@@ -1,11 +1,13 @@
 #include <stdexcept>
 #include <iostream>
+#include <sstream>
 
 #include <application.h>
 #include <window_builder.h>
 #include <model/window_model.h>
 #include <model/button_model.h>
 #include <controller/window_controller.h>
+#include <controller/button_controller.h>
 #include <system_error.h>
 
 int WINAPI WinMain(HINSTANCE hInstance,
@@ -35,6 +37,8 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	button_model->setVisible (true);
 	window_model->add (button_model);
 	
+	int click_count = 0;
+	
 	try
 	{
 		std::shared_ptr<gui::controller::WindowController> controller = 
@@ -44,15 +48,26 @@ int WINAPI WinMain(HINSTANCE hInstance,
 				gui::Application::getInstance()->quit();
 			});
 		
-		controller->onPaintEvent()->registerHandler ([](std::shared_ptr<gui::Graphics> g){
+		controller->onPaintEvent()->registerHandler ([&](std::shared_ptr<gui::Graphics> g){
+				std::stringstream ss;
+				ss << "Click count: " << click_count;
 				g->beginPaint();
-				g->drawText (5, 5, "Hello World!");
+				g->drawText (5, 5, ss.str().c_str());
 				g->endPaint();
 			});
-		
+
+		std::shared_ptr<gui::controller::ButtonController> button_controller = 
+			std::dynamic_pointer_cast<gui::controller::ButtonController>(controller->get("Button1"));
+
+		button_controller->onClickEvent()->registerHandler ([&](){
+				std::cout << "click" << std::endl;
+				click_count++;
+				controller->update();
+			});
+
 		controller->showWindow();
 		controller->update();
-			
+		
 		gui::Application::getInstance()->run();
 	}
 	catch (std::runtime_error& r)

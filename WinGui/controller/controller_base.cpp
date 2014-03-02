@@ -1,5 +1,7 @@
 #include "controller_base.h"
 
+#include <message_dispatcher.h>
+
 namespace gui
 {
 
@@ -53,6 +55,11 @@ bool ControllerBase::fireSystemEvent(UINT message, WPARAM wParam, LPARAM lParam,
 				destroy_event->fire();
 				return true;
 			}
+			break;
+		}
+		case WM_COMMAND:
+		{
+			MessageDispatcher::getInstance()->dispatchCommand (wParam, lParam);
 			break;
 		}
 	}

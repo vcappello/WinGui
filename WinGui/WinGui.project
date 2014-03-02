@@ -48,6 +48,7 @@
     <File Name="controller/button_controller.cpp"/>
     <File Name="controller/controller_base.h"/>
     <File Name="controller/controller_base.cpp"/>
+    <File Name="controller/i_commandable.h"/>
   </VirtualDirectory>
   <Settings Type="Dynamic Library">
     <GlobalSettings>
