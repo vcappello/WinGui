@@ -60,9 +60,8 @@ int WINAPI WinMain(HINSTANCE hInstance,
 			std::dynamic_pointer_cast<gui::controller::ButtonController>(controller->get("Button1"));
 
 		button_controller->onClickEvent()->registerHandler ([&](){
-				std::cout << "click" << std::endl;
 				click_count++;
-				controller->update();
+				controller->repaint();
 			});
 
 		controller->showWindow();

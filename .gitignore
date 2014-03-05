@@ -10,3 +10,8 @@
 WinGui/Debug/WinGui.dll
 Example/Debug/WinGui.dll
 Example/Debug/Example.exe
+.codelite/cppcheck.list
+Example/Debug/Example.exe.manifest
+Example/Example.mk
+Example/Example.mk
+Example/Example.mk

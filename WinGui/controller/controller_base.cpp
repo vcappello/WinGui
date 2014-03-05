@@ -24,6 +24,16 @@ HWND ControllerBase::getHWnd() const
 	return h_wnd;
 }
 
+std::string ControllerBase::getName() const
+{
+	return name;
+}
+
+void ControllerBase::setName(const std::string& value)
+{
+	name = value;
+}
+
 void ControllerBase::show()
 {
 	ShowWindow (h_wnd, SW_SHOWNORMAL);
@@ -32,6 +42,11 @@ void ControllerBase::show()
 void ControllerBase::update()
 {
 	UpdateWindow (h_wnd);
+}
+
+void ControllerBase::repaint()
+{
+	InvalidateRect (h_wnd, NULL, TRUE);
 }
 
 bool ControllerBase::fireSystemEvent(UINT message, WPARAM wParam, LPARAM lParam, LRESULT& lResult)

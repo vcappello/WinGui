@@ -1,14 +1,16 @@
 #include "window_model.h"
 
-#include <algorithm>
-
 namespace gui
 {
 
 namespace model
 {
 
-WindowModel::WindowModel()
+WindowModel::WindowModel() :
+	top( CW_USEDEFAULT ),
+	left( CW_USEDEFAULT ),
+	width( CW_USEDEFAULT ),
+	height( CW_USEDEFAULT )
 {
 }
 
@@ -85,45 +87,6 @@ std::string WindowModel::getCaption() const
 {
 	return caption;
 }
-
-void WindowModel::add(std::shared_ptr<IModelElement> child)
-{
-	children.push_back (child);
-}
-
-void WindowModel::erase(const std::string& name)
-{
-	auto child_itor = std::find_if(children.begin(), children.end(), [&](std::shared_ptr<IModelElement> e){ 
-			return e->getName() == name;
-		});
-		
-	if (child_itor == children.end())
-		throw Error("A children with the name {" + name + "} does not exist");
-		
-	children.erase (child_itor);
-}
-
-std::shared_ptr<IModelElement> WindowModel::get(const std::string& name)
-{
-	auto child_itor = std::find_if(children.begin(), children.end(), [&](std::shared_ptr<IModelElement> e){ 
-			return e->getName() == name;
-		});
-		
-	if (child_itor == children.end())
-		throw Error("A children with the name {" + name + "} does not exist");
-		
-	return *child_itor;	
-}
-
-WindowModel::iterator_t WindowModel::childrenBegin()
-{
-	return children.begin();
-}
-
-WindowModel::iterator_t WindowModel::childrenEnd()
-{
-	return children.end();
-}	
 
 }
 

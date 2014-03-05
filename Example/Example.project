@@ -18,6 +18,7 @@
   <Dependencies/>
   <VirtualDirectory Name="src">
     <File Name="main.cpp"/>
+    <File Name="Example.manifest"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

@@ -25,7 +25,7 @@ std::shared_ptr<controller::WindowController> WindowBuilder::createWindow(std::s
 {
 	std::shared_ptr<controller::WindowController> window_controller = factory::WindowFactory::getInstance()->create (model);
 	
-	for (auto child = model->childrenBegin(); child != model->childrenEnd(); child++)
+	for (auto child = model->begin(); child != model->end(); child++)
 	{
 		model::IModelElement* child_ptr = child->get();
 		if (typeid(*child_ptr) == typeid(model::ButtonModel))
@@ -33,7 +33,7 @@ std::shared_ptr<controller::WindowController> WindowBuilder::createWindow(std::s
 			std::shared_ptr<controller::ButtonController> button_controller = 
 				factory::ButtonFactory::getInstance()->create (window_controller, std::dynamic_pointer_cast<model::ButtonModel>(*child));
 				
-			window_controller->add ((*child)->getName(), button_controller);
+			window_controller->add (button_controller);
 		}
 	}
 	

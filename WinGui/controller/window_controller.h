@@ -5,6 +5,7 @@
 #include <map>
 
 #include <controller/controller_base.h>
+#include <container_impl.h>
 #include <model/window_model.h>
 
 namespace gui
@@ -13,7 +14,8 @@ namespace gui
 namespace controller
 {
 
-class WindowController : public ControllerBase
+class WindowController : public ControllerBase,
+						 public ContainerImpl<std::shared_ptr<ControllerBase>>
 {
 public:
 	// Instance
@@ -21,25 +23,19 @@ public:
 	virtual ~WindowController();
 
 public:
-	// Attributes
+	// ControllerBase abstract Attributes implementation
 	std::shared_ptr<model::IModelElement> getModelElement() const;
 	
+	// WindowController Attributes
 	void setWindowModel(const std::shared_ptr<model::WindowModel>& window_model);
 	std::shared_ptr<model::WindowModel> getWindowModel() const;
 
 public:
-	// Methods
+	// WindowController Methods
 	void showWindow();
-	
-	// Container
-	void add(const std::string& name, std::shared_ptr<ControllerBase> item);
-	void erase(const std::string& name);
-	std::shared_ptr<ControllerBase> get(const std::string& name);
 	
 protected:
 	std::shared_ptr<model::WindowModel> window_model;
-	
-	std::map<std::string, std::shared_ptr<ControllerBase>> children;
 };
 
 }

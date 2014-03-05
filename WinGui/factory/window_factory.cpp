@@ -62,7 +62,7 @@ std::shared_ptr<gui::controller::WindowController> WindowFactory::create(std::sh
 	                model->getName().c_str(),
 	                model->getCaption().c_str(),
 	                window_style,
-	                CW_USEDEFAULT, CW_USEDEFAULT,
+	                model->getLeft(), model->getTop(),
 	                model->getWidth(), model->getHeight(),
 	                NULL,
 	                NULL,
@@ -76,6 +76,8 @@ std::shared_ptr<gui::controller::WindowController> WindowFactory::create(std::sh
 	std::shared_ptr<controller::WindowController> controller =
 	    std::make_shared<controller::WindowController>( hWnd );
 
+	controller->setName (model->getName());
+	
 	// Register controller on MessageDispatcher
 	MessageDispatcher::getInstance()->registerController (controller);
 

@@ -25,12 +25,17 @@ public:
 	// Properties
 	HWND getHWnd() const;
 	
+	std::string getName() const;
+	void setName(const std::string& value);
+	
+	// Abstract Properties
 	virtual std::shared_ptr<model::IModelElement> getModelElement() const = 0;
 
 public:
 	// Methods
 	virtual void show();
 	virtual void update();
+	virtual void repaint();
 	
 public:
 	// Events
@@ -48,6 +53,7 @@ protected:
 protected:
 	paint_event_t paint_event;
 	destroy_event_t destroy_event;
+	std::string name;
 };
 
 }

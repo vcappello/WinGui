@@ -32,6 +32,7 @@
     <File Name="system_error.cpp"/>
     <File Name="window_builder.h"/>
     <File Name="window_builder.cpp"/>
+    <File Name="container_impl.h"/>
   </VirtualDirectory>
   <Dependencies Name="Debug"/>
   <VirtualDirectory Name="model">

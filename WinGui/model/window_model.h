@@ -8,6 +8,7 @@
 #include <windows.h>
 
 #include <model/i_model_element.h>
+#include <container_impl.h>
 #include <error.h>
 
 namespace gui
@@ -16,7 +17,8 @@ namespace gui
 namespace model
 {
 
-class WindowModel : public IModelElement
+class WindowModel : public IModelElement,
+					public ContainerImpl<std::shared_ptr<IModelElement>>
 {
 public:
 	// Instance
@@ -46,17 +48,6 @@ public:
 	void setCaption(const std::string& caption);
 	std::string getCaption() const;
 	
-public:
-	// Container
-	void add(std::shared_ptr<IModelElement> child);
-	void erase(const std::string& name);
-	std::shared_ptr<IModelElement> get(const std::string& name);
-	
-	typedef std::list<std::shared_ptr<IModelElement>> children_t;
-	typedef children_t::iterator iterator_t;
-	iterator_t childrenBegin();
-	iterator_t childrenEnd();
-	
 protected:
 	std::string name;
 	bool visible;
@@ -66,8 +57,6 @@ protected:
 	int left;
 	int width;
 	int height;
-
-	children_t children;
 };
 
 }
