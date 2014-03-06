@@ -7,7 +7,7 @@ namespace controller
 {
 
 ButtonController::ButtonController(HWND hWnd, int command_id) :
-	ControllerBase( hWnd ),
+	AbstractWindowedController( hWnd ),
 	command_id( command_id ),
 	click_event( new Event<>() )
 {

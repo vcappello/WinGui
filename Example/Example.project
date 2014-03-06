@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="Example" InternalType="Console">
   <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00010001N0005Debug000000000000]]>
+    </Plugin>
     <Plugin Name="CMakePlugin">
       <![CDATA[[{
 		"name":	"Debug",
@@ -20,6 +23,9 @@
     <File Name="main.cpp"/>
     <File Name="Example.manifest"/>
   </VirtualDirectory>
+  <Dependencies Name="Debug">
+    <Project Name="WinGui"/>
+  </Dependencies>
   <Settings Type="Executable">
     <GlobalSettings>
       <Compiler Options="" C_Options="" Assembler="">
@@ -50,7 +56,9 @@
         <StartupCommands/>
       </Debugger>
       <PreBuild/>
-      <PostBuild/>
+      <PostBuild>
+        <Command Enabled="yes">COPY /Y $(WorkspacePath)\Example\Example.manifest $(WorkspacePath)\Example\Debug\Example.exe.manifest</Command>
+      </PostBuild>
       <CustomBuild Enabled="no">
         <RebuildCommand/>
         <CleanCommand/>
@@ -112,7 +120,4 @@
       </Completion>
     </Configuration>
   </Settings>
-  <Dependencies Name="Debug">
-    <Project Name="WinGui"/>
-  </Dependencies>
 </CodeLite_Project>

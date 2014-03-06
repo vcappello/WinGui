@@ -1,7 +1,7 @@
 #ifndef BUTTONCONTROLLER_H
 #define BUTTONCONTROLLER_H
 
-#include <controller/controller_base.h>
+#include <controller/abstract_windowed_controller.h>
 #include <controller/i_commandable.h>
 #include <model/button_model.h>
 
@@ -11,7 +11,8 @@ namespace gui
 namespace controller
 {
 
-class ButtonController : public ControllerBase, public ICommandable
+class ButtonController : public AbstractWindowedController, 
+						 public ICommandable
 {
 public:
 	ButtonController(HWND hWnd, int command_id);

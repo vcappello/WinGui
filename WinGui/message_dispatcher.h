@@ -25,16 +25,16 @@ protected:
 
 public:
 	// Methods
-	void registerController(std::shared_ptr<controller::ControllerBase> controller);
-	void unregisterController(std::shared_ptr<controller::ControllerBase> controller);
+	void registerController(std::shared_ptr<controller::AbstractWindowedController> controller);
+	void unregisterController(std::shared_ptr<controller::AbstractWindowedController> controller);
 	
 	LRESULT dispatchMessage(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 	
 	LRESULT dispatchCommand(WPARAM wParam, LPARAM lParam);
 	
 protected:
-	std::map<HWND, std::shared_ptr<controller::ControllerBase>> controller_map;
-	std::map<int, std::shared_ptr<controller::ControllerBase>> controller_cmd_map;
+	std::map<HWND, std::shared_ptr<controller::AbstractWindowedController>> controller_map;
+	std::map<int, std::shared_ptr<controller::AbstractWindowedController>> controller_cmd_map;
 
 };
 

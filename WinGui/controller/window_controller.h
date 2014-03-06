@@ -4,7 +4,7 @@
 #include <string>
 #include <map>
 
-#include <controller/controller_base.h>
+#include <controller/abstract_windowed_controller.h>
 #include <container_impl.h>
 #include <model/window_model.h>
 
@@ -14,8 +14,8 @@ namespace gui
 namespace controller
 {
 
-class WindowController : public ControllerBase,
-						 public ContainerImpl<std::shared_ptr<ControllerBase>>
+class WindowController : public AbstractWindowedController,
+						 public ContainerImpl<std::shared_ptr<IController>>
 {
 public:
 	// Instance
@@ -23,7 +23,7 @@ public:
 	virtual ~WindowController();
 
 public:
-	// ControllerBase abstract Attributes implementation
+	// IController Properties implementation
 	std::shared_ptr<model::IModelElement> getModelElement() const;
 	
 	// WindowController Attributes

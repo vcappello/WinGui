@@ -1,4 +1,4 @@
-#include "controller_base.h"
+#include "abstract_windowed_controller.h"
 
 #include <message_dispatcher.h>
 
@@ -8,48 +8,48 @@ namespace gui
 namespace controller
 {
 
-ControllerBase::ControllerBase(HWND hWnd) :
+AbstractWindowedController::AbstractWindowedController(HWND hWnd) :
 	h_wnd( hWnd ),
 	paint_event( new Event<std::shared_ptr<Graphics>> ),
 	destroy_event( new Event<>() )
 {
 }
 
-ControllerBase::~ControllerBase()
+AbstractWindowedController::~AbstractWindowedController()
 {
 }
 
-HWND ControllerBase::getHWnd() const 
+HWND AbstractWindowedController::getHWnd() const 
 {
 	return h_wnd;
 }
 
-std::string ControllerBase::getName() const
+std::string AbstractWindowedController::getName() const
 {
 	return name;
 }
 
-void ControllerBase::setName(const std::string& value)
+void AbstractWindowedController::setName(const std::string& value)
 {
 	name = value;
 }
 
-void ControllerBase::show()
+void AbstractWindowedController::show()
 {
 	ShowWindow (h_wnd, SW_SHOWNORMAL);
 }
 
-void ControllerBase::update()
+void AbstractWindowedController::update()
 {
 	UpdateWindow (h_wnd);
 }
 
-void ControllerBase::repaint()
+void AbstractWindowedController::repaint()
 {
 	InvalidateRect (h_wnd, NULL, TRUE);
 }
 
-bool ControllerBase::fireSystemEvent(UINT message, WPARAM wParam, LPARAM lParam, LRESULT& lResult)
+bool AbstractWindowedController::fireSystemEvent(UINT message, WPARAM wParam, LPARAM lParam, LRESULT& lResult)
 {
 	switch (message)
 	{

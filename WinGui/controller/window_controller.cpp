@@ -9,7 +9,7 @@ namespace controller
 {
 
 WindowController::WindowController(HWND hWnd) :
-	ControllerBase( hWnd )
+	AbstractWindowedController( hWnd )
 {
 }
 

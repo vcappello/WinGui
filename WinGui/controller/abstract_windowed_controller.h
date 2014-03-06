@@ -1,10 +1,11 @@
-#ifndef CONTROLLERBASE_H
-#define CONTROLLERBASE_H
+#ifndef ABSTRACTWINDOWEDCONTROLLER_H
+#define ABSTRACTWINDOWEDCONTROLLER_H
 
 #include <memory>
 
 #include <windows.h>
 
+#include <controller/i_controller.h>
 #include <model/window_model.h>
 #include <event.h>
 #include <graphics.h>
@@ -15,21 +16,22 @@ namespace gui
 namespace controller
 {
 
-class ControllerBase
+class AbstractWindowedController : public IController
 {
 public:
-	ControllerBase(HWND hWnd);
-	virtual ~ControllerBase();
+	AbstractWindowedController(HWND hWnd);
+	virtual ~AbstractWindowedController();
 
 public:
 	// Properties
 	HWND getHWnd() const;
 	
+	// IController properties
 	std::string getName() const;
 	void setName(const std::string& value);
 	
-	// Abstract Properties
-	virtual std::shared_ptr<model::IModelElement> getModelElement() const = 0;
+	// IController properties Not implemented
+	// virtual std::shared_ptr<model::IModelElement> getModelElement() const = 0;
 
 public:
 	// Methods
@@ -42,10 +44,10 @@ public:
 	virtual bool fireSystemEvent(UINT message, WPARAM wParam, LPARAM lParam, LRESULT& lResult);
 
 	typedef typename std::shared_ptr<Event<std::shared_ptr<Graphics>>> paint_event_t;
-	virtual ControllerBase::paint_event_t onPaintEvent() { return paint_event; }
+	virtual AbstractWindowedController::paint_event_t onPaintEvent() { return paint_event; }
 	
 	typedef typename std::shared_ptr<Event<>> destroy_event_t;
-	virtual ControllerBase::destroy_event_t onDestroyEvent() { return destroy_event; }
+	virtual AbstractWindowedController::destroy_event_t onDestroyEvent() { return destroy_event; }
 	
 protected:
 	HWND h_wnd;
@@ -60,4 +62,4 @@ protected:
 
 }
 
-#endif // CONTROLLERBASE_H
+#endif // ABSTRACTWINDOWEDCONTROLLER_H

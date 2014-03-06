@@ -3,7 +3,7 @@
 #include <sstream>
 
 #include <application.h>
-#include <window_builder.h>
+#include <factory/window_factory.h>
 #include <model/window_model.h>
 #include <model/button_model.h>
 #include <controller/window_controller.h>
@@ -42,7 +42,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	try
 	{
 		std::shared_ptr<gui::controller::WindowController> controller = 
-			gui::WindowBuilder::getInstance()->createWindow (window_model);
+			gui::factory::WindowFactory::getInstance()->create (window_model);
 		
 		controller->onDestroyEvent()->registerHandler ([](){ 
 				gui::Application::getInstance()->quit();

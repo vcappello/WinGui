@@ -8,6 +8,7 @@
 #include <windows.h>
 
 #include <model/i_model_element.h>
+#include <model/i_placeable.h>
 #include <container_impl.h>
 #include <error.h>
 
@@ -18,6 +19,7 @@ namespace model
 {
 
 class WindowModel : public IModelElement,
+					public IPlaceable,
 					public ContainerImpl<std::shared_ptr<IModelElement>>
 {
 public:

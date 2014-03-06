@@ -26,7 +26,10 @@ protected:
 	WindowFactory();
 	
 public:
-	std::shared_ptr<gui::controller::WindowController> create(std::shared_ptr<gui::model::WindowModel> model);
+	std::shared_ptr<gui::controller::WindowController> create(std::shared_ptr<gui::model::WindowModel> model, std::shared_ptr<gui::controller::AbstractWindowedController> container = nullptr);
+	
+protected:
+	std::shared_ptr<gui::controller::WindowController> createWindow(std::shared_ptr<gui::model::WindowModel> model, std::shared_ptr<gui::controller::AbstractWindowedController> container = nullptr);	
 };
 
 }

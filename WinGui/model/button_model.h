@@ -1,7 +1,10 @@
 #ifndef BUTTONMODEL_H
 #define BUTTONMODEL_H
 
+#include <string>
+
 #include <model/i_model_element.h>
+#include <model/i_placeable.h>
 
 namespace gui
 {
@@ -9,7 +12,8 @@ namespace gui
 namespace model
 {
 
-class ButtonModel : public IModelElement
+class ButtonModel : public IModelElement,
+					public IPlaceable
 {
 public:
 	ButtonModel();

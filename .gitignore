@@ -15,3 +15,8 @@ Example/Debug/Example.exe.manifest
 Example/Example.mk
 Example/Example.mk
 Example/Example.mk
+Example/Example.mk
+WinGui/WinGui.mk
+Example/Example.mk
+Makefile
+WinGui/WinGui.mk

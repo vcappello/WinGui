@@ -30,8 +30,6 @@
     <File Name="id_provider.cpp"/>
     <File Name="system_error.h"/>
     <File Name="system_error.cpp"/>
-    <File Name="window_builder.h"/>
-    <File Name="window_builder.cpp"/>
     <File Name="container_impl.h"/>
   </VirtualDirectory>
   <Dependencies Name="Debug"/>
@@ -41,15 +39,17 @@
     <File Name="model/button_model.h"/>
     <File Name="model/button_model.cpp"/>
     <File Name="model/i_model_element.h"/>
+    <File Name="model/i_placeable.h"/>
   </VirtualDirectory>
   <VirtualDirectory Name="controller">
     <File Name="controller/window_controller.h"/>
     <File Name="controller/window_controller.cpp"/>
     <File Name="controller/button_controller.h"/>
     <File Name="controller/button_controller.cpp"/>
-    <File Name="controller/controller_base.h"/>
-    <File Name="controller/controller_base.cpp"/>
     <File Name="controller/i_commandable.h"/>
+    <File Name="controller/i_controller.h"/>
+    <File Name="controller/abstract_windowed_controller.h"/>
+    <File Name="controller/abstract_windowed_controller.cpp"/>
   </VirtualDirectory>
   <Settings Type="Dynamic Library">
     <GlobalSettings>

@@ -3,6 +3,10 @@
 #include <application.h>
 #include <message_dispatcher.h>
 
+#include <controller/button_controller.h>
+#include <model/button_model.h>
+#include <factory/button_factory.h>
+
 namespace gui
 {
 
@@ -32,7 +36,33 @@ std::shared_ptr<WindowFactory> WindowFactory::getInstance()
 	return instance;	
 }
 
-std::shared_ptr<gui::controller::WindowController> WindowFactory::create(std::shared_ptr<gui::model::WindowModel> model)
+std::shared_ptr<gui::controller::WindowController> WindowFactory::create(std::shared_ptr<gui::model::WindowModel> model, std::shared_ptr<gui::controller::AbstractWindowedController> container)
+{
+	std::shared_ptr<controller::WindowController> window_controller = createWindow (model);
+	
+	for (auto child = model->begin(); child != model->end(); child++)
+	{
+		model::IModelElement* child_ptr = child->get();
+		if (typeid(*child_ptr) == typeid(model::ButtonModel))
+		{
+			std::shared_ptr<controller::ButtonController> button_controller = 
+				factory::ButtonFactory::getInstance()->create (std::dynamic_pointer_cast<model::ButtonModel>(*child), window_controller);
+				
+			window_controller->add (button_controller);
+		}
+		else if (typeid(*child_ptr) == typeid(model::WindowModel))
+		{
+			std::shared_ptr<controller::WindowController> child_window_controller = 
+				create (std::dynamic_pointer_cast<model::WindowModel>(*child), window_controller);
+				
+			window_controller->add (child_window_controller);
+		}
+	}
+	
+	return window_controller;
+}
+
+std::shared_ptr<gui::controller::WindowController> WindowFactory::createWindow(std::shared_ptr<gui::model::WindowModel> model, std::shared_ptr<gui::controller::AbstractWindowedController> container)
 {
 	WNDCLASSEX wcex;
 
@@ -64,7 +94,7 @@ std::shared_ptr<gui::controller::WindowController> WindowFactory::create(std::sh
 	                window_style,
 	                model->getLeft(), model->getTop(),
 	                model->getWidth(), model->getHeight(),
-	                NULL,
+	                container ? container->getHWnd() : NULL,
 	                NULL,
 	                Application::getInstance()->getHInstance(),
 	                NULL
@@ -81,7 +111,7 @@ std::shared_ptr<gui::controller::WindowController> WindowFactory::create(std::sh
 	// Register controller on MessageDispatcher
 	MessageDispatcher::getInstance()->registerController (controller);
 
-	return controller;
+	return controller;	
 }
 
 }

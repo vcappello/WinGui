@@ -27,8 +27,8 @@ std::shared_ptr<ButtonFactory> ButtonFactory::getInstance()
 	return instance;
 }
 
-std::shared_ptr<gui::controller::ButtonController> ButtonFactory::create(std::shared_ptr<gui::controller::ControllerBase> container,
-        std::shared_ptr<gui::model::ButtonModel> model)
+std::shared_ptr<gui::controller::ButtonController> ButtonFactory::create(std::shared_ptr<gui::model::ButtonModel> model,
+	std::shared_ptr<gui::controller::AbstractWindowedController> container)
 {
 	int window_style = WS_CHILD | WS_TABSTOP; // BS_DEFPUSHBUTTON
 

@@ -20,7 +20,7 @@ std::shared_ptr<MessageDispatcher> MessageDispatcher::getInstance()
 	return instance;
 }
 
-void MessageDispatcher::registerController(std::shared_ptr<controller::ControllerBase> controller)
+void MessageDispatcher::registerController(std::shared_ptr<controller::AbstractWindowedController> controller)
 {
 	controller_map.insert (std::make_pair (controller->getHWnd(), controller));
 	
@@ -29,7 +29,7 @@ void MessageDispatcher::registerController(std::shared_ptr<controller::Controlle
 		controller_cmd_map.insert (std::make_pair (commandable->getCommandId(), controller));
 }
 
-void MessageDispatcher::unregisterController(std::shared_ptr<controller::ControllerBase> controller)
+void MessageDispatcher::unregisterController(std::shared_ptr<controller::AbstractWindowedController> controller)
 {
 	controller_map.erase (controller->getHWnd());
 	
@@ -45,7 +45,7 @@ LRESULT MessageDispatcher::dispatchMessage(HWND hWnd, UINT message, WPARAM wPara
 		if (controller_itor == controller_map.end())
 			return DefWindowProc (hWnd, message, wParam, lParam);
 
-		std::shared_ptr<controller::ControllerBase> controller = controller_itor->second;
+		std::shared_ptr<controller::AbstractWindowedController> controller = controller_itor->second;
 		LRESULT lResult = 0;
 		if (!controller->fireSystemEvent (message, wParam, lParam, lResult))
 			return DefWindowProc (hWnd, message, wParam, lParam);
@@ -77,7 +77,7 @@ LRESULT MessageDispatcher::dispatchCommand(WPARAM wParam, LPARAM lParam)
 		if (controller_itor == controller_cmd_map.end())
 			return 0;
 
-		std::shared_ptr<controller::ControllerBase> controller = controller_itor->second;
+		std::shared_ptr<controller::AbstractWindowedController> controller = controller_itor->second;
 		std::shared_ptr<controller::ICommandable> commandable = std::dynamic_pointer_cast<controller::ICommandable>(controller);
 		if (commandable)
 			commandable->fireCommandEvent(wParam, lParam);

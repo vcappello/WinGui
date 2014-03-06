@@ -7,7 +7,7 @@
 
 #include <controller/button_controller.h>
 #include <model/button_model.h>
-#include <controller/controller_base.h>
+#include <controller/abstract_windowed_controller.h>
 #include <id_provider.h>
 #include <system_error.h>
 
@@ -28,8 +28,8 @@ protected:
 	ButtonFactory();
 
 public:
-	std::shared_ptr<gui::controller::ButtonController> create(std::shared_ptr<gui::controller::ControllerBase> container,
-	        std::shared_ptr<gui::model::ButtonModel> model);
+	std::shared_ptr<gui::controller::ButtonController> create(std::shared_ptr<gui::model::ButtonModel> model,
+		std::shared_ptr<gui::controller::AbstractWindowedController> container);
 };
 
 }
