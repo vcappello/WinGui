@@ -21,10 +21,6 @@ class ButtonFactory
 {
 public:
 	~ButtonFactory();
-
-	static std::shared_ptr<ButtonFactory> getInstance();
-
-protected:
 	ButtonFactory();
 
 public:

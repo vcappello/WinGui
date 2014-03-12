@@ -1,5 +1,5 @@
-#ifndef BUTTONMODEL_H
-#define BUTTONMODEL_H
+#ifndef EDITMODEL_H
+#define EDITMODEL_H
 
 #include <string>
 
@@ -11,11 +11,11 @@ namespace gui
 namespace model
 {
 
-class ButtonModel : public ControlBaseModel
+class EditModel : public ControlBaseModel
 {
 public:
-	ButtonModel();
-	virtual ~ButtonModel();
+	EditModel();
+	~EditModel();
 
 public:
 	void setText(const std::string& text);
@@ -29,4 +29,4 @@ protected:
 
 }
 
-#endif // BUTTONMODEL_H
+#endif // EDITMODEL_H

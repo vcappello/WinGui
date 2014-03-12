@@ -23,13 +23,13 @@ public:
 	
 	int getCommandId() const;
 	
-	void setButtonModel(const std::shared_ptr<model::ButtonModel>& button_model);
+	void setButtonModel(const std::shared_ptr<model::ButtonModel>& value);
 	std::shared_ptr<model::ButtonModel> getButtonModel() const;
 	
 public:
 	void fireCommandEvent(WPARAM wParam, LPARAM lParam);
 	
-	typedef typename std::shared_ptr<Event<>> click_event_t;
+	typedef std::shared_ptr<Event<>> click_event_t;
 	virtual ButtonController::click_event_t onClickEvent() { return click_event; }
 	
 protected:

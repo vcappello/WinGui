@@ -27,9 +27,9 @@ int ButtonController::getCommandId() const
 	return command_id;
 }
 
-void ButtonController::setButtonModel(const std::shared_ptr<model::ButtonModel>& button_model) 
+void ButtonController::setButtonModel(const std::shared_ptr<model::ButtonModel>& value) 
 {
-	this->button_model = button_model;
+	button_model = value;
 }
 
 std::shared_ptr<model::ButtonModel> ButtonController::getButtonModel() const 

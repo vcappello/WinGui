@@ -7,6 +7,10 @@
 #include <model/button_model.h>
 #include <factory/button_factory.h>
 
+#include <controller/edit_controller.h>
+#include <model/edit_model.h>
+#include <factory/edit_factory.h>
+
 namespace gui
 {
 
@@ -45,10 +49,19 @@ std::shared_ptr<gui::controller::WindowController> WindowFactory::create(std::sh
 		model::IModelElement* child_ptr = child->get();
 		if (typeid(*child_ptr) == typeid(model::ButtonModel))
 		{
+			std::unique_ptr<factory::ButtonFactory> button_factory( new ButtonFactory );
 			std::shared_ptr<controller::ButtonController> button_controller = 
-				factory::ButtonFactory::getInstance()->create (std::dynamic_pointer_cast<model::ButtonModel>(*child), window_controller);
+				button_factory->create (std::dynamic_pointer_cast<model::ButtonModel>(*child), window_controller);
 				
 			window_controller->add (button_controller);
+		}
+		else if (typeid(*child_ptr) == typeid(model::EditModel))
+		{
+			std::unique_ptr<factory::EditFactory> edit_factory( new EditFactory );
+			std::shared_ptr<controller::EditController> edit_controller = 
+				edit_factory->create (std::dynamic_pointer_cast<model::EditModel>(*child), window_controller);
+				
+			window_controller->add (edit_controller);
 		}
 		else if (typeid(*child_ptr) == typeid(model::WindowModel))
 		{

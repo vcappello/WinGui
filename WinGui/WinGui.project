@@ -40,6 +40,12 @@
     <File Name="model/button_model.cpp"/>
     <File Name="model/i_model_element.h"/>
     <File Name="model/i_placeable.h"/>
+    <File Name="model/edit_model.cpp"/>
+    <File Name="model/edit_model.h"/>
+    <File Name="model/control_base_model.cpp"/>
+    <File Name="model/control_base_model.h"/>
+    <File Name="model/font_model.h"/>
+    <File Name="model/font_model.cpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="controller">
     <File Name="controller/window_controller.h"/>
@@ -50,6 +56,8 @@
     <File Name="controller/i_controller.h"/>
     <File Name="controller/abstract_windowed_controller.h"/>
     <File Name="controller/abstract_windowed_controller.cpp"/>
+    <File Name="controller/edit_controller.cpp"/>
+    <File Name="controller/edit_controller.h"/>
   </VirtualDirectory>
   <Settings Type="Dynamic Library">
     <GlobalSettings>
@@ -147,5 +155,7 @@
     <File Name="factory/button_factory.h"/>
     <File Name="factory/window_factory.cpp"/>
     <File Name="factory/window_factory.h"/>
+    <File Name="factory/edit_factory.cpp"/>
+    <File Name="factory/edit_factory.h"/>
   </VirtualDirectory>
 </CodeLite_Project>
