@@ -2,6 +2,7 @@
 
 #include <application.h>
 #include <message_dispatcher.h>
+#include <factory/font_factory.h>
 
 namespace gui
 {
@@ -47,6 +48,13 @@ std::shared_ptr<gui::controller::EditController> EditFactory::create(std::shared
 	    std::make_shared<controller::EditController>( hWnd, edit_id );
 
 	controller->setName (model->getName());
+	
+	if (model->getFontModel())
+	{
+		gui::factory::FontFactory font_factory;
+		std::shared_ptr<gui::handler::FontHandler> font_handler = font_factory.create (model->getFontModel());
+		controller->setFontHandler (font_handler);
+	}
 	
 	// Register controller on MessageDispatcher
 	MessageDispatcher::getInstance()->registerController (controller);

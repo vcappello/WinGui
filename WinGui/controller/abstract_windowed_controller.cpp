@@ -19,11 +19,6 @@ AbstractWindowedController::~AbstractWindowedController()
 {
 }
 
-HWND AbstractWindowedController::getHWnd() const 
-{
-	return h_wnd;
-}
-
 std::string AbstractWindowedController::getName() const
 {
 	return name;
@@ -32,6 +27,23 @@ std::string AbstractWindowedController::getName() const
 void AbstractWindowedController::setName(const std::string& value)
 {
 	name = value;
+}
+
+HWND AbstractWindowedController::getHWnd() const 
+{
+	return h_wnd;
+}
+
+std::shared_ptr<gui::handler::FontHandler> AbstractWindowedController::getFontHandler()
+{
+	return font_handler;
+}
+
+void AbstractWindowedController::setFontHandler(std::shared_ptr<gui::handler::FontHandler> value)
+{	
+	font_handler = value;
+	
+	SendMessage(h_wnd, WM_SETFONT, (WPARAM)font_handler->getHFont(), TRUE);
 }
 
 void AbstractWindowedController::show()

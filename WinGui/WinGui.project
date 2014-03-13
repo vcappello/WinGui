@@ -157,5 +157,11 @@
     <File Name="factory/window_factory.h"/>
     <File Name="factory/edit_factory.cpp"/>
     <File Name="factory/edit_factory.h"/>
+    <File Name="factory/font_factory.h"/>
+    <File Name="factory/font_factory.cpp"/>
+  </VirtualDirectory>
+  <VirtualDirectory Name="handler">
+    <File Name="handler/font_handler.h"/>
+    <File Name="handler/font_handler.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>

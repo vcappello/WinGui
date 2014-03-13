@@ -74,6 +74,16 @@ int ControlBaseModel::getHeight() const
 	return height;
 }
 
+std::shared_ptr<gui::model::FontModel> ControlBaseModel::getFontModel() const
+{
+	return font_model;
+}
+
+void ControlBaseModel::setFontModel(std::shared_ptr<gui::model::FontModel> value)
+{
+	font_model = value;
+}
+
 }
 
 }

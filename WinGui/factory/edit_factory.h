@@ -21,7 +21,7 @@ class EditFactory
 {
 public:
 	EditFactory();
-	~EditFactory();
+	virtual ~EditFactory();
 
 public:
 	std::shared_ptr<gui::controller::EditController> create(std::shared_ptr<gui::model::EditModel> model,

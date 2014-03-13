@@ -1,3 +1,4 @@
+#include <memory>
 #include <stdexcept>
 #include <iostream>
 #include <sstream>
@@ -7,6 +8,7 @@
 #include <model/window_model.h>
 #include <model/button_model.h>
 #include <model/edit_model.h>
+#include <model/font_model.h>
 #include <controller/window_controller.h>
 #include <controller/button_controller.h>
 #include <controller/edit_controller.h>
@@ -19,6 +21,9 @@ int WINAPI WinMain(HINSTANCE hInstance,
 {
 	gui::Application::getInstance()->startup(hInstance, hPrevInstance, lpCmdLine, nCmdShow);
 	
+	std::shared_ptr<gui::model::FontModel> font_model = 
+		std::make_shared<gui::model::FontModel>();
+		
 	std::shared_ptr<gui::model::WindowModel> window_model = 
 		std::make_shared<gui::model::WindowModel>();
 	
@@ -37,6 +42,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	edit_model->setWidth (200);
 	edit_model->setHeight (30);
 	edit_model->setVisible (true);
+	edit_model->setFontModel (font_model);
 	
 	std::shared_ptr<gui::model::ButtonModel> button_model = 
 		std::make_shared<gui::model::ButtonModel>();
@@ -48,7 +54,8 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	button_model->setWidth (100);
 	button_model->setHeight (30);
 	button_model->setVisible (true);
-
+	button_model->setFontModel (font_model);
+	
 	window_model->add (edit_model);
 	window_model->add (button_model);
 	

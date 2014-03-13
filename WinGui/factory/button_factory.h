@@ -20,8 +20,8 @@ namespace factory
 class ButtonFactory
 {
 public:
-	~ButtonFactory();
 	ButtonFactory();
+	virtual ~ButtonFactory();
 
 public:
 	std::shared_ptr<gui::controller::ButtonController> create(std::shared_ptr<gui::model::ButtonModel> model,

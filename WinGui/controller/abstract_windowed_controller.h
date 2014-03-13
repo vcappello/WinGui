@@ -7,6 +7,7 @@
 
 #include <controller/i_controller.h>
 #include <model/window_model.h>
+#include <handler/font_handler.h>
 #include <event.h>
 #include <graphics.h>
 
@@ -23,9 +24,6 @@ public:
 	virtual ~AbstractWindowedController();
 
 public:
-	// Properties
-	HWND getHWnd() const;
-	
 	// IController properties
 	std::string getName() const;
 	void setName(const std::string& value);
@@ -33,6 +31,12 @@ public:
 	// IController properties Not implemented
 	// virtual std::shared_ptr<model::IModelElement> getModelElement() const = 0;
 
+	// AbstractWindowedController Properties
+	HWND getHWnd() const;
+
+	std::shared_ptr<gui::handler::FontHandler> getFontHandler();
+	void setFontHandler(std::shared_ptr<gui::handler::FontHandler> value);
+	
 public:
 	// Methods
 	virtual void show();
@@ -51,6 +55,7 @@ public:
 	
 protected:
 	HWND h_wnd;
+	std::shared_ptr<gui::handler::FontHandler> font_handler;
 	
 protected:
 	paint_event_t paint_event;

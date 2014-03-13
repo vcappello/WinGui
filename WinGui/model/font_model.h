@@ -24,31 +24,24 @@ public:
 	};
 
 public:
-	void setFamilyName(const std::string& family_name) {
-		this->family_name = family_name;
-	}
-	void setFontSize(int font_size) {
-		this->font_size = font_size;
-	}
-	void setFontStyle(const font_style_e& font_style) {
-		this->font_style = font_style;
-	}
-	void setFontWeight(int font_weight) {
-		this->font_weight = font_weight;
-	}
-	const std::string& getFamilyName() const {
-		return family_name;
-	}
-	int getFontSize() const {
-		return font_size;
-	}
-	const font_style_e& getFontStyle() const {
-		return font_style;
-	}
-	int getFontWeight() const {
-		return font_weight;
-	}
+	void setName(const std::string& value);
+	std::string getName() const;
+
+	std::string getFamilyName() const;
+	void setFamilyName(const std::string& value);
+	
+	int getFontSize() const;
+	void setFontSize(int value);
+	
+	font_style_e getFontStyle() const;
+	void setFontStyle(font_style_e value);
+	
+	int getFontWeight() const;
+	void setFontWeight(int value);
+	
 protected:
+	std::string name;
+	
 	std::string family_name;
 	int font_size;
 	font_style_e font_style;
