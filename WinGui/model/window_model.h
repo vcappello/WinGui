@@ -9,6 +9,7 @@
 
 #include <model/i_model_element.h>
 #include <model/i_placeable.h>
+#include <model/font_model.h>
 #include <container_impl.h>
 #include <error.h>
 
@@ -49,7 +50,10 @@ public:
 	
 	void setCaption(const std::string& caption);
 	std::string getCaption() const;
-	
+
+	std::shared_ptr<gui::model::FontModel> getFontModel() const;
+	void setFontModel(std::shared_ptr<gui::model::FontModel> value);
+		
 protected:
 	std::string name;
 	bool visible;
@@ -59,6 +63,8 @@ protected:
 	int left;
 	int width;
 	int height;
+	
+	std::shared_ptr<gui::model::FontModel> font_model;
 };
 
 }

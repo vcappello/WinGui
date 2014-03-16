@@ -88,6 +88,16 @@ std::string WindowModel::getCaption() const
 	return caption;
 }
 
+std::shared_ptr<gui::model::FontModel> WindowModel::getFontModel() const
+{
+	return font_model;
+}
+
+void WindowModel::setFontModel(std::shared_ptr<gui::model::FontModel> value)
+{
+	font_model = value;
+}
+
 }
 
 }

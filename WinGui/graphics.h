@@ -6,6 +6,8 @@
 
 #include <windows.h>
 
+#include <handler/font_handler.h>
+
 namespace gui
 {
 
@@ -20,11 +22,14 @@ public:
 	void endPaint();
 	
 	void drawText(int x, int y, const std::string& text);
+
+	void selectFont(std::shared_ptr<gui::handler::FontHandler> font);
 	
 protected:
 	HWND h_wnd;
-	HDC hdc; 
+	HDC h_dc; 
 	PAINTSTRUCT paint_struct;
+	HFONT h_init_font;
 };
 
 }

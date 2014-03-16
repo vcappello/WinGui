@@ -31,6 +31,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	window_model->setCaption ("Example");
 	window_model->setWidth (300);
 	window_model->setHeight (200);
+	window_model->setFontModel (font_model);
 	
 	std::shared_ptr<gui::model::EditModel> edit_model = 
 		std::make_shared<gui::model::EditModel>();
@@ -80,6 +81,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
 				std::stringstream ss;
 				ss << "Click count: " << click_count;
 				g->beginPaint();
+				g->selectFont (window_controller->getFontHandler());
 				g->drawText (5, 5, ss.str().c_str());
 				g->endPaint();
 			});

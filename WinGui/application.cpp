@@ -34,8 +34,12 @@ void Application::run()
     MSG msg;
     while (GetMessage (&msg, NULL, 0, 0))
     {
-        TranslateMessage (&msg);
-        DispatchMessage (&msg);
+		HWND hwnd = GetForegroundWindow();
+		if(hwnd == NULL || !IsDialogMessage (hwnd, &msg))
+		{		
+			TranslateMessage (&msg);
+			DispatchMessage (&msg);
+		}
     }	
 }
 
