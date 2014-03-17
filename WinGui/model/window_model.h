@@ -29,33 +29,41 @@ public:
 	virtual ~WindowModel();
 
 public:
-	// Attributes
-	void setName(const std::string& name);
+	// IModelElement Attributes
+	void setName(const std::string& value);
 	std::string getName() const;
 	
-	void setVisible(bool visible);
-	bool isVisible() const;
-
-	void setTop(int top);	
+	// IPlaceable Atttributes
+	void setTop(int value);	
 	int getTop() const;
 
-	void setLeft(int left);
+	void setLeft(int value);
 	int getLeft() const;
 	
-	void setWidth(int width);	
+	void setWidth(int value);	
 	int getWidth() const;
 	
-	void setHeight(int height);
+	void setHeight(int value);
 	int getHeight() const;
+
+	// WindowModel Attributes
+	void setVisible(bool value);
+	bool isVisible() const;
 	
-	void setCaption(const std::string& caption);
+	void setCaption(const std::string& value);
 	std::string getCaption() const;
 
 	std::shared_ptr<gui::model::FontModel> getFontModel() const;
 	void setFontModel(std::shared_ptr<gui::model::FontModel> value);
-		
+	
+public:
+	// IModelElement events
+	IModelElement::property_changed_event_t getPropertyChangedEvent() { return property_changed_event; }
+	
 protected:
 	std::string name;
+	IModelElement::property_changed_event_t property_changed_event;
+	
 	bool visible;
 	std::string caption;
 

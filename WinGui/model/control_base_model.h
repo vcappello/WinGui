@@ -22,9 +22,11 @@ public:
 	~ControlBaseModel();
 
 public:
+	// IModelElement Attributes
 	void setName(const std::string& name);
 	std::string getName() const;
 	
+	// IPlaceable Attributes
 	void setTop(int top);	
 	int getTop() const;
 
@@ -37,14 +39,21 @@ public:
 	void setHeight(int height);
 	int getHeight() const;
 
+	// ControlBaseModel Attributes
 	void setVisible(bool visible);
 	bool isVisible() const;	
 	
 	std::shared_ptr<gui::model::FontModel> getFontModel() const;
 	void setFontModel(std::shared_ptr<gui::model::FontModel> value);
-	
+
+public:
+	// IModelElement events
+	IModelElement::property_changed_event_t getPropertyChangedEvent() { return property_changed_event; }
+		
 protected:
 	std::string name;	
+	IModelElement::property_changed_event_t property_changed_event;
+	
 	bool visible;
 	
 	int top;

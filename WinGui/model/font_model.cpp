@@ -9,7 +9,7 @@ namespace model
 FontModel::FontModel() :
 	family_name( "Tahoma" ),
 	font_size( 16 ),
-	font_style( FONT_STYLE_NORMAL ),
+	font_style( FontStyle::FONT_STYLE_NORMAL ),
 	font_weight( 400 )
 {
 }
@@ -48,12 +48,12 @@ void FontModel::setFontSize(int value)
 	font_size = value;
 }
 
-FontModel::font_style_e FontModel::getFontStyle() const 
+FontModel::FontStyle FontModel::getFontStyle() const 
 {
 	return font_style;
 }
 
-void FontModel::setFontStyle(FontModel::font_style_e value) 
+void FontModel::setFontStyle(FontModel::FontStyle value) 
 {
 	font_style = value;
 }

@@ -7,6 +7,7 @@ namespace model
 {
 
 WindowModel::WindowModel() :
+	property_changed_event( new Event<std::string> ),
 	top( CW_USEDEFAULT ),
 	left( CW_USEDEFAULT ),
 	width( CW_USEDEFAULT ),
@@ -18,9 +19,10 @@ WindowModel::~WindowModel()
 {
 }
 
-void WindowModel::setName(const std::string& name) 
+void WindowModel::setName(const std::string& value) 
 {
-	this->name = name;
+	name = value;
+	property_changed_event->fire ("Name");
 }
 
 std::string WindowModel::getName() const 
@@ -28,9 +30,10 @@ std::string WindowModel::getName() const
 	return name;
 }
 
-void WindowModel::setVisible(bool visible)
+void WindowModel::setVisible(bool value)
 {
-	this->visible = visible;
+	visible = value;
+	property_changed_event->fire ("Visible");
 }
 
 bool WindowModel::isVisible() const
@@ -38,9 +41,10 @@ bool WindowModel::isVisible() const
 	return visible;
 }
 	
-void WindowModel::setTop(int top)
+void WindowModel::setTop(int value)
 {
-	this->top = top;
+	top = value;
+	property_changed_event->fire ("Top");
 }
 
 int WindowModel::getTop() const
@@ -48,9 +52,10 @@ int WindowModel::getTop() const
 	return top;
 }
 
-void WindowModel::setLeft(int left)
+void WindowModel::setLeft(int value)
 {
-	this->left = left;
+	left = value;
+	property_changed_event->fire ("Left");
 }
 
 int WindowModel::getLeft() const
@@ -58,9 +63,10 @@ int WindowModel::getLeft() const
 	return left;
 }	
 
-void WindowModel::setWidth(int width) 
+void WindowModel::setWidth(int value) 
 {
-	this->width = width;
+	width = value;
+	property_changed_event->fire ("Width");	
 }
 
 int WindowModel::getWidth() const 
@@ -68,9 +74,10 @@ int WindowModel::getWidth() const
 	return width;
 }
 
-void WindowModel::setHeight(int height) 
+void WindowModel::setHeight(int value) 
 {
-	this->height = height;
+	height = value;
+	property_changed_event->fire ("Height");
 }
 
 int WindowModel::getHeight() const 
@@ -78,9 +85,10 @@ int WindowModel::getHeight() const
 	return height;
 }
 
-void WindowModel::setCaption(const std::string& caption) 
+void WindowModel::setCaption(const std::string& value) 
 {
-	this->caption = caption;
+	caption = value;
+	property_changed_event->fire ("Caption");
 }
 
 std::string WindowModel::getCaption() const 
@@ -96,6 +104,7 @@ std::shared_ptr<gui::model::FontModel> WindowModel::getFontModel() const
 void WindowModel::setFontModel(std::shared_ptr<gui::model::FontModel> value)
 {
 	font_model = value;
+	property_changed_event->fire ("FontModel");	
 }
 
 }

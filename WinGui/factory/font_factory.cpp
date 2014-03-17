@@ -28,7 +28,7 @@ std::shared_ptr<gui::handler::FontHandler> FontFactory::create(std::shared_ptr<g
 						0,
 						0,
 						model->getFontWeight(),
-						model->getFontStyle() == gui::model::FontModel::FONT_STYLE_ITALIC ? TRUE : FALSE,
+						model->getFontStyle() == gui::model::FontModel::FontStyle::FONT_STYLE_ITALIC ? TRUE : FALSE,
 						FALSE,
 						FALSE,
 						DEFAULT_CHARSET,
