@@ -44,16 +44,26 @@ public:
 
 public:
 	// IModelElement events
-	IModelElement::property_changed_event_t getPropertyChangedEvent() { return property_changed_event; }
+	IModelElement::property_changed_event_t getNameChangedEvent() { return name_changed_event; }
 			
+	// FontModel events
+	IModelElement::property_changed_event_t getFamilyNameChangedEvent() { return family_name_changed_event; }
+	IModelElement::property_changed_event_t getFontSizeChangedEvent() { return font_size_changed_event; }
+	IModelElement::property_changed_event_t getFontStyleChangedEvent() { return font_style_changed_event; }
+	IModelElement::property_changed_event_t getFontWeightChangedEvent() { return font_weight_changed_event; }
+	
 protected:
-	std::string name;
-	IModelElement::property_changed_event_t property_changed_event;
-		
+	std::string name;		
 	std::string family_name;
 	int font_size;
 	FontStyle font_style;
 	int font_weight;
+	
+	IModelElement::property_changed_event_t name_changed_event;	
+	IModelElement::property_changed_event_t family_name_changed_event;	
+	IModelElement::property_changed_event_t font_size_changed_event;	
+	IModelElement::property_changed_event_t font_style_changed_event;	
+	IModelElement::property_changed_event_t font_weight_changed_event;	
 };
 
 }

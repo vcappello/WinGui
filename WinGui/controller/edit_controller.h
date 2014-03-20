@@ -24,7 +24,7 @@ public:
 	int getCommandId() const;
 	
 	void setEditModel(const std::shared_ptr<model::EditModel>& value);
-	std::shared_ptr<model::EditModel> getButtonModel() const;
+	std::shared_ptr<model::EditModel> getEditModel() const;
 	
 	std::string getText();
 	void setText(const std::string& value);

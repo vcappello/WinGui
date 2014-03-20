@@ -23,45 +23,57 @@ public:
 
 public:
 	// IModelElement Attributes
-	void setName(const std::string& name);
+	void setName(const std::string& value);
 	std::string getName() const;
 	
 	// IPlaceable Attributes
-	void setTop(int top);	
+	void setTop(int value);	
 	int getTop() const;
 
-	void setLeft(int left);
+	void setLeft(int value);
 	int getLeft() const;
 	
-	void setWidth(int width);	
+	void setWidth(int value);	
 	int getWidth() const;
 	
-	void setHeight(int height);
+	void setHeight(int value);
 	int getHeight() const;
 
 	// ControlBaseModel Attributes
-	void setVisible(bool visible);
+	void setVisible(bool value);
 	bool isVisible() const;	
 	
 	std::shared_ptr<gui::model::FontModel> getFontModel() const;
 	void setFontModel(std::shared_ptr<gui::model::FontModel> value);
 
 public:
-	// IModelElement events
-	IModelElement::property_changed_event_t getPropertyChangedEvent() { return property_changed_event; }
-		
+	// IModelElement Events
+	IModelElement::property_changed_event_t getNameChangedEvent() { return name_changed_event; }
+
+	// ControlBaseModel Events
+	IModelElement::property_changed_event_t getVisibleChangedEvent() { return visible_changed_event; }
+	IModelElement::property_changed_event_t getTopChangedEvent() { return top_changed_event; }
+	IModelElement::property_changed_event_t getLeftChangedEvent() { return left_changed_event; }
+	IModelElement::property_changed_event_t getWidthChangedEvent() { return width_changed_event; }
+	IModelElement::property_changed_event_t getHeightChangedEvent() { return height_changed_event; }
+	IModelElement::property_changed_event_t getFontModelChangedEvent() { return font_model_changed_event; }
+	
 protected:
-	std::string name;	
-	IModelElement::property_changed_event_t property_changed_event;
-	
+	std::string name;		
 	bool visible;
-	
 	int top;
 	int left;	
 	int width;
 	int height;		
-	
 	std::shared_ptr<gui::model::FontModel> font_model;
+	
+	IModelElement::property_changed_event_t name_changed_event;
+	IModelElement::property_changed_event_t visible_changed_event;
+	IModelElement::property_changed_event_t top_changed_event;
+	IModelElement::property_changed_event_t left_changed_event;
+	IModelElement::property_changed_event_t width_changed_event;
+	IModelElement::property_changed_event_t height_changed_event;
+	IModelElement::property_changed_event_t font_model_changed_event;
 };
 
 }

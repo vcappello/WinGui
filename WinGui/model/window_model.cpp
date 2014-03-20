@@ -7,7 +7,14 @@ namespace model
 {
 
 WindowModel::WindowModel() :
-	property_changed_event( new Event<std::string> ),
+	name_changed_event( new Event<>() ),
+	visible_changed_event( new Event<>() ),
+	caption_changed_event( new Event<>() ),
+	top_changed_event( new Event<>() ),
+	left_changed_event( new Event<>() ),
+	width_changed_event( new Event<>() ),
+	height_changed_event( new Event<>() ),
+	font_model_changed_event( new Event<>() ),	
 	top( CW_USEDEFAULT ),
 	left( CW_USEDEFAULT ),
 	width( CW_USEDEFAULT ),
@@ -21,8 +28,11 @@ WindowModel::~WindowModel()
 
 void WindowModel::setName(const std::string& value) 
 {
-	name = value;
-	property_changed_event->fire ("Name");
+	if (name != value)
+	{
+		name = value;
+		name_changed_event->fire();
+	}
 }
 
 std::string WindowModel::getName() const 
@@ -32,8 +42,11 @@ std::string WindowModel::getName() const
 
 void WindowModel::setVisible(bool value)
 {
-	visible = value;
-	property_changed_event->fire ("Visible");
+	if (visible != value)
+	{
+		visible = value;
+		visible_changed_event->fire();
+	}
 }
 
 bool WindowModel::isVisible() const
@@ -43,8 +56,11 @@ bool WindowModel::isVisible() const
 	
 void WindowModel::setTop(int value)
 {
-	top = value;
-	property_changed_event->fire ("Top");
+	if (top != value)
+	{
+		top = value;
+		top_changed_event->fire();
+	}
 }
 
 int WindowModel::getTop() const
@@ -54,8 +70,11 @@ int WindowModel::getTop() const
 
 void WindowModel::setLeft(int value)
 {
-	left = value;
-	property_changed_event->fire ("Left");
+	if (left != value)
+	{
+		left = value;
+		left_changed_event->fire();
+	}
 }
 
 int WindowModel::getLeft() const
@@ -65,8 +84,11 @@ int WindowModel::getLeft() const
 
 void WindowModel::setWidth(int value) 
 {
-	width = value;
-	property_changed_event->fire ("Width");	
+	if (width != value)
+	{
+		width = value;
+		width_changed_event->fire();
+	}
 }
 
 int WindowModel::getWidth() const 
@@ -76,8 +98,11 @@ int WindowModel::getWidth() const
 
 void WindowModel::setHeight(int value) 
 {
-	height = value;
-	property_changed_event->fire ("Height");
+	if (height != value)
+	{
+		height = value;
+		height_changed_event->fire();
+	}
 }
 
 int WindowModel::getHeight() const 
@@ -87,8 +112,11 @@ int WindowModel::getHeight() const
 
 void WindowModel::setCaption(const std::string& value) 
 {
-	caption = value;
-	property_changed_event->fire ("Caption");
+	if (caption != value)
+	{
+		caption = value;
+		caption_changed_event->fire();
+	}
 }
 
 std::string WindowModel::getCaption() const 
@@ -103,8 +131,11 @@ std::shared_ptr<gui::model::FontModel> WindowModel::getFontModel() const
 
 void WindowModel::setFontModel(std::shared_ptr<gui::model::FontModel> value)
 {
-	font_model = value;
-	property_changed_event->fire ("FontModel");	
+	if (font_model != value)
+	{
+		font_model = value;
+		font_model_changed_event->fire();
+	}
 }
 
 }

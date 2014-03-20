@@ -47,6 +47,7 @@ std::shared_ptr<gui::controller::ButtonController> ButtonFactory::create(std::sh
 	std::shared_ptr<controller::ButtonController> controller =
 	    std::make_shared<controller::ButtonController>( hWnd, button_id );
 
+	controller->setButtonModel (model);
 	controller->setName (model->getName());
 	
 	if (model->getFontModel())

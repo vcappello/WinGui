@@ -7,6 +7,11 @@ namespace model
 {
 
 FontModel::FontModel() :
+	name_changed_event( new Event<>() ),
+	family_name_changed_event( new Event<>() ),
+	font_size_changed_event( new Event<>() ),
+	font_style_changed_event( new Event<>() ),
+	font_weight_changed_event( new Event<>() ),
 	family_name( "Tahoma" ),
 	font_size( 16 ),
 	font_style( FontStyle::FONT_STYLE_NORMAL ),
@@ -18,14 +23,18 @@ FontModel::~FontModel()
 {
 }
 
-void FontModel::setName(const std::string& value) 
-{
-	name = value;
-}
-
 std::string FontModel::getName() const 
 {
 	return name;
+}
+
+void FontModel::setName(const std::string& value) 
+{
+	if (name != value)
+	{
+		name = value;
+		name_changed_event->fire();
+	}
 }
 
 std::string FontModel::getFamilyName() const 
@@ -35,7 +44,11 @@ std::string FontModel::getFamilyName() const
 
 void FontModel::setFamilyName(const std::string& value) 
 {
-	family_name = value;
+	if (family_name != value)
+	{
+		family_name = value;
+		family_name_changed_event->fire();
+	}
 }
 
 int FontModel::getFontSize() const 
@@ -45,7 +58,11 @@ int FontModel::getFontSize() const
 
 void FontModel::setFontSize(int value) 
 {
-	font_size = value;
+	if (font_size != value)
+	{
+		font_size = value;
+		font_size_changed_event->fire();
+	}
 }
 
 FontModel::FontStyle FontModel::getFontStyle() const 
@@ -55,7 +72,11 @@ FontModel::FontStyle FontModel::getFontStyle() const
 
 void FontModel::setFontStyle(FontModel::FontStyle value) 
 {
-	font_style = value;
+	if (font_style != value)
+	{
+		font_style = value;
+		font_style_changed_event->fire();
+	}
 }
 
 int FontModel::getFontWeight() const 
@@ -65,7 +86,11 @@ int FontModel::getFontWeight() const
 
 void FontModel::setFontWeight(int value) 
 {
-	font_weight = value;
+	if (font_weight != value)
+	{
+		font_weight = value;
+		font_weight_changed_event->fire();
+	}
 }
 
 }

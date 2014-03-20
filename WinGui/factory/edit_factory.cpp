@@ -47,6 +47,7 @@ std::shared_ptr<gui::controller::EditController> EditFactory::create(std::shared
 	std::shared_ptr<controller::EditController> controller =
 	    std::make_shared<controller::EditController>( hWnd, edit_id );
 
+	controller->setEditModel (model);
 	controller->setName (model->getName());
 	
 	if (model->getFontModel())

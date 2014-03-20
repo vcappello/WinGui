@@ -6,7 +6,8 @@ namespace gui
 namespace model
 {
 
-EditModel::EditModel()
+EditModel::EditModel() :
+	text_changed_event( new Event<>() )
 {
 }
 
@@ -14,9 +15,13 @@ EditModel::~EditModel()
 {
 }
 
-void EditModel::setText(const std::string& text)
+void EditModel::setText(const std::string& value)
 {
-	this->text = text;
+	if (text != value)
+	{
+		text = value;
+		text_changed_event->fire();
+	}
 }
 
 std::string EditModel::getText() const

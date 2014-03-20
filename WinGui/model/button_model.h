@@ -18,11 +18,17 @@ public:
 	virtual ~ButtonModel();
 
 public:
-	void setText(const std::string& text);
+	void setText(const std::string& value);
 	std::string getText() const;
+	
+public:
+	// ButtonModel Events
+	IModelElement::property_changed_event_t getTextChangedEvent() { return text_changed_event; }
 	
 protected:
 	std::string text;
+	
+	IModelElement::property_changed_event_t text_changed_event;	
 };
 
 }

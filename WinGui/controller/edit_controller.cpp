@@ -32,7 +32,7 @@ void EditController::setEditModel(const std::shared_ptr<model::EditModel>& value
 	edit_model = value;
 }
 
-std::shared_ptr<model::EditModel> EditController::getButtonModel() const 
+std::shared_ptr<model::EditModel> EditController::getEditModel() const 
 {
 	return edit_model;
 }
@@ -60,6 +60,8 @@ void EditController::fireCommandEvent(WPARAM wParam, LPARAM lParam)
 	{
 		case EN_CHANGE:
 		{
+			edit_model->setText (getText());
+			
 			change_event->fire();
 			break;
 		}

@@ -121,6 +121,7 @@ std::shared_ptr<gui::controller::WindowController> WindowFactory::createWindow(s
 	std::shared_ptr<controller::WindowController> controller =
 	    std::make_shared<controller::WindowController>( hWnd );
 
+	controller->setWindowModel (model);
 	controller->setName (model->getName());
 	
 	if (model->getFontModel())

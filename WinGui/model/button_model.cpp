@@ -6,7 +6,8 @@ namespace gui
 namespace model
 {
 
-ButtonModel::ButtonModel()
+ButtonModel::ButtonModel() :
+	text_changed_event( new Event<>() )
 {
 }
 
@@ -14,9 +15,13 @@ ButtonModel::~ButtonModel()
 {
 }
 
-void ButtonModel::setText(const std::string& text)
+void ButtonModel::setText(const std::string& value)
 {
-	this->text = text;
+	if (text != value)
+	{
+		text = value;
+		text_changed_event->fire();
+	}
 }
 
 std::string ButtonModel::getText() const

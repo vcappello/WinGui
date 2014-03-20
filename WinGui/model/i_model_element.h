@@ -25,9 +25,9 @@ public:
 	virtual void setName(const std::string& name) = 0;
 	virtual std::string getName() const = 0;
 	
-	typedef std::shared_ptr<Event<std::string>> property_changed_event_t;
+	typedef std::shared_ptr<Event<>> property_changed_event_t;
 	
-	virtual property_changed_event_t getPropertyChangedEvent() = 0;
+	virtual property_changed_event_t getNameChangedEvent() = 0;
 };
 
 }
