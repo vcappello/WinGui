@@ -94,6 +94,13 @@ bool AbstractWindowedController::fireSystemEvent(UINT message, WPARAM wParam, LP
 	return false;
 }
 
+void AbstractWindowedController::processPlaceableModel(std::shared_ptr<gui::model::IPlaceable> placeable)
+{
+//	placeable->getLocationChangedEvent()->registerHandler([&]{
+//			setLocation ( std::dynamic_pointer_cast<IPlaceable>(getModelElement())->getLocation() )
+//		});
+}
+
 }
 
 }

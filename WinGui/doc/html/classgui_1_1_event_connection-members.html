@@ -82,24 +82,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>gui</b></li><li class="navelem"><b>model</b></li><li class="navelem"><a class="el" href="classgui_1_1model_1_1_i_model_element.html">IModelElement</a></li>  </ul>
+<li class="navelem"><b>gui</b></li><li class="navelem"><a class="el" href="classgui_1_1_event_connection.html">EventConnection</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">gui::model::IModelElement Member List</div>  </div>
+<div class="title">gui::EventConnection&lt; Arguments &gt; Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="classgui_1_1_event_connection.html">gui::EventConnection&lt; Arguments &gt;</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getName</b>() const =0 (defined in <a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a>)</td><td class="entry"><a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getNameChangedEvent</b>()=0 (defined in <a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a>)</td><td class="entry"><a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>IModelElement</b>() (defined in <a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a>)</td><td class="entry"><a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>property_changed_connection_t</b> typedef (defined in <a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a>)</td><td class="entry"><a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>property_changed_event_t</b> typedef (defined in <a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a>)</td><td class="entry"><a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>setName</b>(const std::string &amp;name)=0 (defined in <a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a>)</td><td class="entry"><a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~IModelElement</b>() (defined in <a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a>)</td><td class="entry"><a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>enabled</b> (defined in <a class="el" href="classgui_1_1_event_connection.html">gui::EventConnection&lt; Arguments &gt;</a>)</td><td class="entry"><a class="el" href="classgui_1_1_event_connection.html">gui::EventConnection&lt; Arguments &gt;</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>EventConnection</b>(handler_t handler) (defined in <a class="el" href="classgui_1_1_event_connection.html">gui::EventConnection&lt; Arguments &gt;</a>)</td><td class="entry"><a class="el" href="classgui_1_1_event_connection.html">gui::EventConnection&lt; Arguments &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>fire</b>(Arguments...parameters) (defined in <a class="el" href="classgui_1_1_event_connection.html">gui::EventConnection&lt; Arguments &gt;</a>)</td><td class="entry"><a class="el" href="classgui_1_1_event_connection.html">gui::EventConnection&lt; Arguments &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>handler</b> (defined in <a class="el" href="classgui_1_1_event_connection.html">gui::EventConnection&lt; Arguments &gt;</a>)</td><td class="entry"><a class="el" href="classgui_1_1_event_connection.html">gui::EventConnection&lt; Arguments &gt;</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>handler_t</b> typedef (defined in <a class="el" href="classgui_1_1_event_connection.html">gui::EventConnection&lt; Arguments &gt;</a>)</td><td class="entry"><a class="el" href="classgui_1_1_event_connection.html">gui::EventConnection&lt; Arguments &gt;</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>isEnabled</b>() const  (defined in <a class="el" href="classgui_1_1_event_connection.html">gui::EventConnection&lt; Arguments &gt;</a>)</td><td class="entry"><a class="el" href="classgui_1_1_event_connection.html">gui::EventConnection&lt; Arguments &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setEnabled</b>(bool value) (defined in <a class="el" href="classgui_1_1_event_connection.html">gui::EventConnection&lt; Arguments &gt;</a>)</td><td class="entry"><a class="el" href="classgui_1_1_event_connection.html">gui::EventConnection&lt; Arguments &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>~EventConnection</b>() (defined in <a class="el" href="classgui_1_1_event_connection.html">gui::EventConnection&lt; Arguments &gt;</a>)</td><td class="entry"><a class="el" href="classgui_1_1_event_connection.html">gui::EventConnection&lt; Arguments &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

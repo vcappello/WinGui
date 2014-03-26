@@ -10,16 +10,39 @@ WindowModel::WindowModel() :
 	name_changed_event( new Event<>() ),
 	visible_changed_event( new Event<>() ),
 	caption_changed_event( new Event<>() ),
-	top_changed_event( new Event<>() ),
-	left_changed_event( new Event<>() ),
-	width_changed_event( new Event<>() ),
-	height_changed_event( new Event<>() ),
+	location_changed_event( new Event<>() ),
+	size_changed_event( new Event<>() ),
 	font_model_changed_event( new Event<>() ),	
-	top( CW_USEDEFAULT ),
-	left( CW_USEDEFAULT ),
-	width( CW_USEDEFAULT ),
-	height( CW_USEDEFAULT )
+	location( new Point( CW_USEDEFAULT, CW_USEDEFAULT )  ),
+	size( new Size( CW_USEDEFAULT, CW_USEDEFAULT ) ),
+	font_model( new FontModel() )
 {
+	location->getXChangedEvent()->registerHandler([&]{
+			location_changed_event->fire();
+		});
+	location->getYChangedEvent()->registerHandler([&]{
+			location_changed_event->fire();
+		});
+
+	size->getWidthChangedEvent()->registerHandler([&]{
+			size_changed_event->fire();
+		});
+	size->getHeightChangedEvent()->registerHandler([&]{
+			size_changed_event->fire();
+		});
+
+	font_model->getFamilyNameChangedEvent()->registerHandler([&]{
+			font_model_changed_event->fire();
+		});
+	font_model->getFontSizeChangedEvent()->registerHandler([&]{
+			font_model_changed_event->fire();
+		});
+	font_model->getFontStyleChangedEvent()->registerHandler([&]{
+			font_model_changed_event->fire();
+		});
+	font_model->getFontWeightChangedEvent()->registerHandler([&]{
+			font_model_changed_event->fire();
+		});
 }
 
 WindowModel::~WindowModel()
@@ -53,62 +76,42 @@ bool WindowModel::isVisible() const
 {
 	return visible;
 }
-	
-void WindowModel::setTop(int value)
+
+std::shared_ptr<Point> WindowModel::getLocation()
 {
-	if (top != value)
+	return location;
+}
+
+std::shared_ptr<Point> WindowModel::getLocation() const
+{
+	return location;
+}
+
+void WindowModel::setLocation(std::shared_ptr<Point> value)
+{
+	if (*location != *value)
 	{
-		top = value;
-		top_changed_event->fire();
+		location->set (value);
 	}
 }
 
-int WindowModel::getTop() const
+std::shared_ptr<Size> WindowModel::getSize()
 {
-	return top;
+	return size;
 }
 
-void WindowModel::setLeft(int value)
+std::shared_ptr<Size> WindowModel::getSize() const
 {
-	if (left != value)
+	return size;
+}
+
+void WindowModel::setSize(std::shared_ptr<Size> value)
+{
+	if (*size != *value)
 	{
-		left = value;
-		left_changed_event->fire();
+		size->set (value);
 	}
-}
-
-int WindowModel::getLeft() const
-{
-	return left;
 }	
-
-void WindowModel::setWidth(int value) 
-{
-	if (width != value)
-	{
-		width = value;
-		width_changed_event->fire();
-	}
-}
-
-int WindowModel::getWidth() const 
-{
-	return width;
-}
-
-void WindowModel::setHeight(int value) 
-{
-	if (height != value)
-	{
-		height = value;
-		height_changed_event->fire();
-	}
-}
-
-int WindowModel::getHeight() const 
-{
-	return height;
-}
 
 void WindowModel::setCaption(const std::string& value) 
 {
@@ -131,10 +134,9 @@ std::shared_ptr<gui::model::FontModel> WindowModel::getFontModel() const
 
 void WindowModel::setFontModel(std::shared_ptr<gui::model::FontModel> value)
 {
-	if (font_model != value)
+	if (*font_model != *value)
 	{
-		font_model = value;
-		font_model_changed_event->fire();
+		font_model->set (value);
 	}
 }
 

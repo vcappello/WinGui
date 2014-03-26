@@ -9,12 +9,39 @@ namespace model
 ControlBaseModel::ControlBaseModel() :
 	name_changed_event( new Event<>() ),
 	visible_changed_event( new Event<>() ),
-	top_changed_event( new Event<>() ),
-	left_changed_event( new Event<>() ),
-	width_changed_event( new Event<>() ),
-	height_changed_event( new Event<>() ),
-	font_model_changed_event( new Event<>() )
+	location_changed_event( new Event<>() ),
+	size_changed_event( new Event<>() ),
+	font_model_changed_event( new Event<>() ),
+	location( new Point( CW_USEDEFAULT, CW_USEDEFAULT )  ),
+	size( new Size( CW_USEDEFAULT, CW_USEDEFAULT ) ),
+	font_model( new FontModel() )
 {
+	location->getXChangedEvent()->registerHandler([&]{
+			location_changed_event->fire();
+		});
+	location->getYChangedEvent()->registerHandler([&]{
+			location_changed_event->fire();
+		});
+
+	size->getWidthChangedEvent()->registerHandler([&]{
+			size_changed_event->fire();
+		});
+	size->getHeightChangedEvent()->registerHandler([&]{
+			size_changed_event->fire();
+		});
+
+	font_model->getFamilyNameChangedEvent()->registerHandler([&]{
+			font_model_changed_event->fire();
+		});
+	font_model->getFontSizeChangedEvent()->registerHandler([&]{
+			font_model_changed_event->fire();
+		});
+	font_model->getFontStyleChangedEvent()->registerHandler([&]{
+			font_model_changed_event->fire();
+		});
+	font_model->getFontWeightChangedEvent()->registerHandler([&]{
+			font_model_changed_event->fire();
+		});	
 }
 
 ControlBaseModel::~ControlBaseModel()
@@ -48,61 +75,41 @@ bool ControlBaseModel::isVisible() const
 {
 	return visible;
 }
-	
-void ControlBaseModel::setTop(int value)
+
+std::shared_ptr<Point> ControlBaseModel::getLocation()
 {
-	if (top != value)
+	return location;
+}
+
+std::shared_ptr<Point> ControlBaseModel::getLocation() const
+{
+	return location;
+}
+
+void ControlBaseModel::setLocation(std::shared_ptr<Point> value)
+{
+	if (*location != *value)
 	{
-		top = value;
-		top_changed_event->fire();
+		location->set (value);
 	}
 }
 
-int ControlBaseModel::getTop() const
+std::shared_ptr<Size> ControlBaseModel::getSize()
 {
-	return top;
+	return size;
 }
 
-void ControlBaseModel::setLeft(int value)
+std::shared_ptr<Size> ControlBaseModel::getSize() const
 {
-	if (left != value)
+	return size;
+}
+
+void ControlBaseModel::setSize(std::shared_ptr<Size> value)
+{
+	if (*size != *value)
 	{
-		left = value;
-		left_changed_event->fire();
+		size->set (value);
 	}
-}
-
-int ControlBaseModel::getLeft() const
-{
-	return left;
-}	
-
-void ControlBaseModel::setWidth(int value) 
-{
-	if (width != value)
-	{
-		width = value;
-		width_changed_event->fire();
-	}
-}
-
-int ControlBaseModel::getWidth() const 
-{
-	return width;
-}
-
-void ControlBaseModel::setHeight(int value) 
-{
-	if (height != value)
-	{
-		height = value;
-		height_changed_event->fire();
-	}
-}
-
-int ControlBaseModel::getHeight() const 
-{
-	return height;
 }
 
 std::shared_ptr<gui::model::FontModel> ControlBaseModel::getFontModel() const
@@ -112,10 +119,9 @@ std::shared_ptr<gui::model::FontModel> ControlBaseModel::getFontModel() const
 
 void ControlBaseModel::setFontModel(std::shared_ptr<gui::model::FontModel> value)
 {
-	if (font_model != value)
+	if (*font_model != *value)
 	{
-		font_model = value;
-		font_model_changed_event->fire();
+		font_model->set (value);
 	}
 }
 

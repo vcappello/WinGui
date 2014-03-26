@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=vincenzo
-Date                   :=03/01/14
+Date                   :=03/26/14
 CodeLitePath           :="C:\Program Files (x86)\CodeLite"
 LinkerName             :=g++
 SharedObjectLinkerName :=g++ -shared -fPIC
@@ -87,6 +87,11 @@ $(OutputFile): $(IntermediateDirectory)/.d "..\.build-debug\WinGui" $(Objects)
 
 
 
+
+PostBuild:
+	@echo Executing Post Build commands ...
+	COPY /Y $(WorkspacePath)\Example\Example.manifest $(WorkspacePath)\Example\Debug\Example.exe.manifest
+	@echo Done
 
 $(IntermediateDirectory)/.d:
 	@$(MakeDirCommand) "./Debug"

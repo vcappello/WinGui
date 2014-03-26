@@ -46,6 +46,10 @@
     <File Name="model/control_base_model.h"/>
     <File Name="model/font_model.h"/>
     <File Name="model/font_model.cpp"/>
+    <File Name="model/point.cpp"/>
+    <File Name="model/point.h"/>
+    <File Name="model/size.cpp"/>
+    <File Name="model/size.h"/>
   </VirtualDirectory>
   <VirtualDirectory Name="controller">
     <File Name="controller/window_controller.h"/>

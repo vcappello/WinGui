@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>WinGui: Member List</title>
+<title>WinGui: gui::EventConnection&lt; Arguments &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,25 +82,54 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>gui</b></li><li class="navelem"><b>model</b></li><li class="navelem"><a class="el" href="classgui_1_1model_1_1_i_model_element.html">IModelElement</a></li>  </ul>
+<li class="navelem"><b>gui</b></li><li class="navelem"><a class="el" href="classgui_1_1_event_connection.html">EventConnection</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="classgui_1_1_event_connection-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gui::model::IModelElement Member List</div>  </div>
+<div class="title">gui::EventConnection&lt; Arguments &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>This is the complete list of members for <a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a>, including all inherited members.</p>
-<table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getName</b>() const =0 (defined in <a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a>)</td><td class="entry"><a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getNameChangedEvent</b>()=0 (defined in <a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a>)</td><td class="entry"><a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>IModelElement</b>() (defined in <a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a>)</td><td class="entry"><a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>property_changed_connection_t</b> typedef (defined in <a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a>)</td><td class="entry"><a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>property_changed_event_t</b> typedef (defined in <a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a>)</td><td class="entry"><a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>setName</b>(const std::string &amp;name)=0 (defined in <a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a>)</td><td class="entry"><a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~IModelElement</b>() (defined in <a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a>)</td><td class="entry"><a class="el" href="classgui_1_1model_1_1_i_model_element.html">gui::model::IModelElement</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-</table></div><!-- contents -->
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a213c7ba1a5de4377ce97fa7226cd30d5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a213c7ba1a5de4377ce97fa7226cd30d5"></a>
+typedef std::function&lt; void(Arguments...)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>handler_t</b></td></tr>
+<tr class="separator:a213c7ba1a5de4377ce97fa7226cd30d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a12078dc757c6639a0b31bdd68ee6fb6d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a12078dc757c6639a0b31bdd68ee6fb6d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>EventConnection</b> (handler_t handler)</td></tr>
+<tr class="separator:a12078dc757c6639a0b31bdd68ee6fb6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac77cf69d4e2bf4f435abfd3e537613cc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac77cf69d4e2bf4f435abfd3e537613cc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>fire</b> (Arguments...parameters)</td></tr>
+<tr class="separator:ac77cf69d4e2bf4f435abfd3e537613cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0dc6a14957e807e4f916f9a8863c67e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0dc6a14957e807e4f916f9a8863c67e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isEnabled</b> () const </td></tr>
+<tr class="separator:ab0dc6a14957e807e4f916f9a8863c67e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a236db99639b4450a8733d6d17f640acf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a236db99639b4450a8733d6d17f640acf"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setEnabled</b> (bool value)</td></tr>
+<tr class="separator:a236db99639b4450a8733d6d17f640acf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a1c58a87c461d70e8118181b8651f8d8e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c58a87c461d70e8118181b8651f8d8e"></a>
+handler_t&#160;</td><td class="memItemRight" valign="bottom"><b>handler</b></td></tr>
+<tr class="separator:a1c58a87c461d70e8118181b8651f8d8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a809fc1d49bc7d3c04ded707807d4617d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a809fc1d49bc7d3c04ded707807d4617d"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>enabled</b></td></tr>
+<tr class="separator:a809fc1d49bc7d3c04ded707807d4617d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>C:/Users/vincenzo/Documents/GitHub/WinGui/WinGui/<a class="el" href="event_8h_source.html">event.h</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated on Fri Mar 21 2014 22:13:12 for WinGui by &#160;<a href="http://www.doxygen.org/index.html">

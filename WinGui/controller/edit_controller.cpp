@@ -1,5 +1,7 @@
 #include "edit_controller.h"
 
+#include <factory/font_factory.h>
+
 namespace gui
 {
 
@@ -29,7 +31,21 @@ int EditController::getCommandId() const
 
 void EditController::setEditModel(const std::shared_ptr<model::EditModel>& value) 
 {
+	// TODO: unregister from previous model (if exist)
 	edit_model = value;
+	
+	font_model_changed_connection = edit_model->getFontModelChangedEvent()->registerHandler([&]{
+			gui::factory::FontFactory font_factory;
+			std::shared_ptr<gui::handler::FontHandler> font_handler = font_factory.create (edit_model->getFontModel());
+			setFontHandler (font_handler);
+		});
+		
+	text_changed_connection = edit_model->getTextChangedEvent()->registerHandler([&]{
+			setText(edit_model->getText());
+		});
+		
+	processPlaceableModel (value);
+	
 }
 
 std::shared_ptr<model::EditModel> EditController::getEditModel() const 
@@ -60,7 +76,9 @@ void EditController::fireCommandEvent(WPARAM wParam, LPARAM lParam)
 	{
 		case EN_CHANGE:
 		{
+			text_changed_connection->setEnabled (false);			
 			edit_model->setText (getText());
+			text_changed_connection->setEnabled (true);
 			
 			change_event->fire();
 			break;

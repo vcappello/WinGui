@@ -40,6 +40,10 @@ protected:
 	std::shared_ptr<model::EditModel> edit_model;
 	int command_id;
 	
+	typedef gui::model::IModelElement::property_changed_connection_t connection_t;
+	connection_t font_model_changed_connection;
+	connection_t text_changed_connection;
+	
 protected:
 	change_event_t change_event;
 };

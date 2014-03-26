@@ -98,21 +98,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a4320aee8554f1f046fb3827da394ec49"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4320aee8554f1f046fb3827da394ec49"></a>
-typedef std::function&lt; void(Arguments...)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>handler_t</b></td></tr>
-<tr class="separator:a4320aee8554f1f046fb3827da394ec49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc262b11a9d6782e8fcfb9acbae893ec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc262b11a9d6782e8fcfb9acbae893ec"></a>
+typedef <a class="el" href="classgui_1_1_event_connection.html">EventConnection</a><br class="typebreak"/>
+&lt; Arguments...&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>connection_t</b></td></tr>
+<tr class="separator:acc262b11a9d6782e8fcfb9acbae893ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab940e71eb9e1c81c4294c577e0705e2a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab940e71eb9e1c81c4294c577e0705e2a"></a>
+typedef connection_t::handler_t&#160;</td><td class="memItemRight" valign="bottom"><b>handler_t</b></td></tr>
+<tr class="separator:ab940e71eb9e1c81c4294c577e0705e2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:afa333cc9404bad90fdd047b1836f9207"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa333cc9404bad90fdd047b1836f9207"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>fire</b> (Arguments...parameters)</td></tr>
 <tr class="separator:afa333cc9404bad90fdd047b1836f9207"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bf097148720f7b67c587c5b85d5721f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4bf097148720f7b67c587c5b85d5721f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>registerHandler</b> (handler_t handler)</td></tr>
-<tr class="separator:a4bf097148720f7b67c587c5b85d5721f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2dbcae77a52d62c9c07c3d96d21fa9f6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2dbcae77a52d62c9c07c3d96d21fa9f6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>unregisterHandler</b> (handler_t handler)</td></tr>
-<tr class="separator:a2dbcae77a52d62c9c07c3d96d21fa9f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc2ada7c1c167881de28f15117ee08fa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc2ada7c1c167881de28f15117ee08fa"></a>
+std::shared_ptr&lt; <a class="el" href="classgui_1_1_event_connection.html">connection_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>registerHandler</b> (handler_t handler)</td></tr>
+<tr class="separator:abc2ada7c1c167881de28f15117ee08fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a934dad78e625d35dbe5382aa01c801af"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a934dad78e625d35dbe5382aa01c801af"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>unregisterHandler</b> (std::shared_ptr&lt; <a class="el" href="classgui_1_1_event_connection.html">connection_t</a> &gt; connection)</td></tr>
+<tr class="separator:a934dad78e625d35dbe5382aa01c801af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4d068124712da65572e7d4fb784f907"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac4d068124712da65572e7d4fb784f907"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>unregisterAll</b> ()</td></tr>
 <tr class="separator:ac4d068124712da65572e7d4fb784f907"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,17 +126,18 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasSubscriptions</b> 
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a1d315eaf0a8ca14412e847e2926351d6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1d315eaf0a8ca14412e847e2926351d6"></a>
-std::list&lt; handler_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>registry</b></td></tr>
-<tr class="separator:a1d315eaf0a8ca14412e847e2926351d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99930c75377d0cce91a0430c99a42597"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a99930c75377d0cce91a0430c99a42597"></a>
+std::list&lt; std::shared_ptr<br class="typebreak"/>
+&lt; <a class="el" href="classgui_1_1_event_connection.html">connection_t</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>registry</b></td></tr>
+<tr class="separator:a99930c75377d0cce91a0430c99a42597"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="event_8h_source.html">event.h</a></li>
+<li>C:/Users/vincenzo/Documents/GitHub/WinGui/WinGui/<a class="el" href="event_8h_source.html">event.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 20 2014 22:48:45 for WinGui by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Mar 21 2014 22:13:12 for WinGui by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

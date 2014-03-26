@@ -2,6 +2,7 @@
 #define FONTMODEL_H
 
 #include <string>
+#include <memory>
 
 #include <model/i_model_element.h>
 
@@ -41,7 +42,8 @@ public:
 	int getFontWeight() const;
 	void setFontWeight(int value);
 
-
+	void set(std::shared_ptr<FontModel> data);
+	
 public:
 	// IModelElement events
 	IModelElement::property_changed_event_t getNameChangedEvent() { return name_changed_event; }
@@ -51,6 +53,23 @@ public:
 	IModelElement::property_changed_event_t getFontSizeChangedEvent() { return font_size_changed_event; }
 	IModelElement::property_changed_event_t getFontStyleChangedEvent() { return font_style_changed_event; }
 	IModelElement::property_changed_event_t getFontWeightChangedEvent() { return font_weight_changed_event; }
+	
+public:
+	bool operator== (const FontModel& rhs)
+	{
+		return family_name == rhs.getFamilyName() && 
+			font_size == rhs.getFontSize() &&
+			font_style == rhs.getFontStyle() &&
+			font_weight == rhs.getFontWeight();
+	}
+	
+	bool operator!= (const FontModel& rhs)
+	{
+		return family_name != rhs.getFamilyName() ||
+			font_size != rhs.getFontSize() ||
+			font_style != rhs.getFontStyle() ||
+			font_weight != rhs.getFontWeight();
+	}
 	
 protected:
 	std::string name;		

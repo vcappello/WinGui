@@ -93,6 +93,14 @@ void FontModel::setFontWeight(int value)
 	}
 }
 
+void FontModel::set(std::shared_ptr<FontModel> data)
+{
+	setFamilyName (data->getFamilyName());
+	setFontSize (data->getFontSize());
+	setFontStyle (data->getFontStyle());
+	setFontWeight (data->getFontWeight());
+}
+
 }
 
 }

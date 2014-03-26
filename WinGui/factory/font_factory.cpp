@@ -39,7 +39,7 @@ std::shared_ptr<gui::handler::FontHandler> FontFactory::create(std::shared_ptr<g
 						model->getFamilyName().c_str());
 						
 	std::shared_ptr<gui::handler::FontHandler> handler( new gui::handler::FontHandler( h_font ), fontDeleter );
-	
+
 	return handler;
 }
 

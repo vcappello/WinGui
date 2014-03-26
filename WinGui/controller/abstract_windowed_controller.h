@@ -54,6 +54,9 @@ public:
 	virtual AbstractWindowedController::destroy_event_t onDestroyEvent() { return destroy_event; }
 	
 protected:
+	void processPlaceableModel(std::shared_ptr<gui::model::IPlaceable> placeable);
+	
+protected:
 	HWND h_wnd;
 	std::shared_ptr<gui::handler::FontHandler> font_handler;
 	
